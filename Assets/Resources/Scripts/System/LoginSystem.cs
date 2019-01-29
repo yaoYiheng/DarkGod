@@ -31,8 +31,11 @@ public class LoginSystem : Singleton<LoginSystem>
         //连下面的方法也可以省略
         GameRoot.Instance.resourceService.AsyncLoadScene(Consts.S_LoadingScene, ()=>
         {
-            LoginWindow.gameObject.SetActive(true);
-            LoginWindow.InitLogin();
+            //LoginWindow.gameObject.SetActive(true);
+            //LoginWindow.InitLogin();
+
+            //简化后代替上面代码
+            LoginWindow.SetWindowState(true);
         });
     }
 
