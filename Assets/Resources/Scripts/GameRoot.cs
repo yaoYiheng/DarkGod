@@ -8,13 +8,15 @@
 
 using UnityEngine;
 [RequireComponent(typeof(ResourceService))]
+[RequireComponent(typeof(LoginSystem))]
 public class GameRoot : Singleton<GameRoot> 
 {
     [HideInInspector]
     public ResourceService resourceService = null;
+    [HideInInspector]
+    public LoginSystem m_LoginSystem = null;
+    //该UI因为会在跳转场景中都使用到, 所以在这里赋值
 
-
-    private LoginSystem m_LoginSystem;
 
     public UILoadingWindow UILoadingWindow;
     public override void Init()
@@ -24,7 +26,7 @@ public class GameRoot : Singleton<GameRoot>
 
         //业务系统初始化
 
-        AddComponents();
+
 
         InitSystems();
 
@@ -32,16 +34,11 @@ public class GameRoot : Singleton<GameRoot>
 
     }
 
-    private void AddComponents()
-    {
-        m_LoginSystem = gameObject.AddComponent<LoginSystem>();
-
-    }
 
     private void InitSystems()
     {
         //初始化LoninSystem
-        m_LoginSystem.InitLoginSys();
+        m_LoginSystem.Init();
         //进入登录场景并加载相应的UI 
         m_LoginSystem.EnterLogin();
     }
@@ -54,6 +51,7 @@ public class GameRoot : Singleton<GameRoot>
         DontDestroyOnLoad(this.gameObject);
 
         resourceService = ResourceService.Instance;
+        m_LoginSystem = LoginSystem.Instance;
 
         Init();
     }

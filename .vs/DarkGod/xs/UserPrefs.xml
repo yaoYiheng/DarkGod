@@ -2,15 +2,18 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/System/LoginSystem.cs">
     <Files>
-      <File FileName="Assets/Resources/Scripts/GameRoot.cs" Line="37" Column="56" />
-      <File FileName="Assets/Resources/Scripts/Services/ResourceService.cs" Line="27" Column="51" />
-      <File FileName="Assets/Resources/Scripts/System/LoginSystem.cs" Line="31" Column="24" />
-      <File FileName="Assets/Resources/Scripts/UIWindow/UILoadingWindow.cs" Line="33" Column="1" />
+      <File FileName="Assets/Resources/Scripts/GameRoot.cs" Line="57" Column="9" />
+      <File FileName="Assets/Resources/Scripts/Services/ResourceService.cs" Line="42" Column="59" />
+      <File FileName="Assets/Resources/Scripts/UIWindow/UILoadingWindow.cs" Line="31" Column="9" />
+      <File FileName="Assets/Resources/Scripts/UIWindow/UILoginWindow.cs" Line="35" Column="1" />
+      <File FileName="Assets/Resources/Scripts/System/LoginSystem.cs" Line="20" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/yiheng/Documents/Unity相关/DarkGod/Assets/Resources/Scripts/Services/ResourceService.cs" relfile="Assets/Resources/Scripts/Services/ResourceService.cs" line="43" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <AuthorInfo Name="yiheng" Email="fn1117@qq.com" Copyright="" Company="" Trademark="" />

@@ -418,10 +418,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1484216061497510, guid: 89345585cd1404334abd75535783f2fe, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89345585cd1404334abd75535783f2fe, type: 2}
   m_IsPrefabAsset: 0
@@ -660,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 5120, y: 2880}
@@ -813,8 +809,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1836288260}
-  - component: {fileID: 1836288262}
+  - component: {fileID: 1836288263}
   - component: {fileID: 1836288261}
+  - component: {fileID: 1836288262}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -856,13 +853,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1836288259}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee750a1d468434e2184f46f518ae585b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoginWindow: {fileID: 1913278640}
+--- !u!114 &1836288263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1836288259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b434112cf21045fc8c0495bfc706d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   resourceService: {fileID: 0}
+  m_LoginSystem: {fileID: 0}
   UILoadingWindow: {fileID: 1527823114}
 --- !u!224 &1892395026 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224450498648631626, guid: fc778a99f666c4e3c94771826837338f,
     type: 2}
   m_PrefabInternal: {fileID: 161500266}
+--- !u!114 &1913278640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114480846882192768, guid: 89345585cd1404334abd75535783f2fe,
+    type: 2}
+  m_PrefabInternal: {fileID: 522333996}
+  m_Script: {fileID: 11500000, guid: 3db101ec4b84148f58807fd2de4c16aa, type: 3}

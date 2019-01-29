@@ -21,8 +21,16 @@ public class ResourceService : Singleton<ResourceService>
     }
 
     //异步加载场景
+    //加载的是LoadiScene.
     public void AsyncLoadScene(string name)
     {
+
+        //设置场景为可见
+        GameRoot.Instance.UILoadingWindow.gameObject.SetActive(true);
+        //初始化 进度条
+        //显示加载的进度条
+        GameRoot.Instance.UILoadingWindow.InitUI();
+
         //获取异步加载的
         var progress = SceneManager.LoadSceneAsync(name);
 
@@ -33,6 +41,8 @@ public class ResourceService : Singleton<ResourceService>
             //使用progress == 1做比较胡报错 所以使用下面的API
             if (Mathf.Approximately(progress.progress, 1))
             {
+                LoginSystem.Instance.EnterLoginWindow();
+                
                 //加载完毕时, 就不再监听以及将异步加载场景停止掉
                 progress = null;
                 OnSceceLoad = null;

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Resources\Scripts\Singleton\Singleton.cs" />
     <Compile Include="Assets\Resources\Scripts\System\LoginSystem.cs" />
     <Compile Include="Assets\Resources\Scripts\UIWindow\UILoadingWindow.cs" />
+    <Compile Include="Assets\Resources\Scripts\UIWindow\UILoginWindow.cs" />
     <None Include="Assets\Compond\Shader\MogoSkybox.shader" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/yiheng/Documents/Unity相关/DarkGod/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
