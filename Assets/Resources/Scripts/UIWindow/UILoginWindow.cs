@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UILoginWindow : MonoBehaviour 
+public class UILoginWindow : UIWindowRoot 
 {
     public InputField m_AccountField;
     public InputField m_PasswordField;
@@ -19,8 +19,9 @@ public class UILoginWindow : MonoBehaviour
     public Button EnterGameBtn;
 
 
-    public void InitLogin()
+    protected override void InitUIwindow()
     {
+        base.InitUIwindow();
         //如果不是第一次登录, 就显示曾经保存的值和密码
         if (PlayerPrefs.HasKey("Account") && PlayerPrefs.HasKey("Password"))
         {

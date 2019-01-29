@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UILoadingWindow : MonoBehaviour 
+public class UILoadingWindow : UIWindowRoot 
 {
     Text m_TipsText;
     Text m_ProgressText;
@@ -34,8 +34,9 @@ public class UILoadingWindow : MonoBehaviour
     }
 
     //初始化各个子控件
-    public void InitUI()
+    protected override void InitUIwindow()
     {
+        base.InitUIwindow();
         m_TipsText.text = "这是一条提示...";
         m_ProgressText.text = "0%";
         m_ProgressImage.fillAmount = 0f;

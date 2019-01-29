@@ -26,11 +26,13 @@ public class ResourceService : Singleton<ResourceService>
     {
 
         //设置场景为可见
-        GameRoot.Instance.UILoadingWindow.gameObject.SetActive(true);
-        //初始化 进度条
-        //显示加载的进度条
-        GameRoot.Instance.UILoadingWindow.InitUI();
+        //GameRoot.Instance.UILoadingWindow.gameObject.SetActive(true);
+        ////初始化 进度条
+        ////显示加载的进度条
+        //GameRoot.Instance.UILoadingWindow.InitUIwindow();
 
+        //对LoadingWindow进行抽象继承后, 简化上面的代码.
+        GameRoot.Instance.UILoadingWindow.SetWindowState();
         //获取异步加载的
         var progress = SceneManager.LoadSceneAsync(name);
 
@@ -57,7 +59,8 @@ public class ResourceService : Singleton<ResourceService>
                 OnSceceLoad = null;
                 //调用更新方法
                 //每一帧都会调用
-                GameRoot.Instance.UILoadingWindow.gameObject.SetActive(false);
+                //GameRoot.Instance.UILoadingWindow.gameObject.SetActive(false);
+                GameRoot.Instance.UILoadingWindow.SetWindowState(false);
 
             }
 
