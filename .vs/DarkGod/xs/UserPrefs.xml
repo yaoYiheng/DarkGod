@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{74517C5A-3D96-83E5-DC95-5845B4929015}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/System/LoginSystem.cs">
+    <Files>
+      <File FileName="Assets/Resources/Scripts/GameRoot.cs" Line="37" Column="56" />
+      <File FileName="Assets/Resources/Scripts/Services/ResourceService.cs" Line="27" Column="51" />
+      <File FileName="Assets/Resources/Scripts/System/LoginSystem.cs" Line="31" Column="24" />
+      <File FileName="Assets/Resources/Scripts/UIWindow/UILoadingWindow.cs" Line="33" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <AuthorInfo Name="yiheng" Email="fn1117@qq.com" Copyright="" Company="" Trademark="" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor-firstpass PreferredExecutionTarget="Unity.Editor" />
+</Properties>
