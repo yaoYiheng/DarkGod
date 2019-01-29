@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 public class ResourceService : Singleton<ResourceService> 
 {
 
-    public Action OnSceceLoad;
+    private Action OnSceceLoad;
 
     public override void Init()
     {
@@ -22,7 +22,7 @@ public class ResourceService : Singleton<ResourceService>
 
     //异步加载场景
     //加载的是LoadiScene.
-    public void AsyncLoadScene(string name)
+    public void AsyncLoadScene(string name, Action OnLoaded)
     {
 
         //设置场景为可见
@@ -37,12 +37,21 @@ public class ResourceService : Singleton<ResourceService>
         //方法监听.匿名方法.
         OnSceceLoad = () =>
         {
+            //因为进度条是通用的, 所以这样写没有关系.
             GameRoot.Instance.UILoadingWindow.UpdateUI(progress.progress);
             //使用progress == 1做比较胡报错 所以使用下面的API
             if (Mathf.Approximately(progress.progress, 1))
             {
-                LoginSystem.Instance.EnterLoginWindow();
-                
+                //不能在这里直接写加载到登录页面, 因为之后还会用到该方法.
+                //应该使用一个回调函数来完成这个功能
+                //LoginSystem.Instance.EnterLoginWindow();
+
+                //当完成加载, 应该跳转到Login场景时. 使用回调
+                if (OnLoaded != null)
+                {
+                    OnLoaded();
+                }
+
                 //加载完毕时, 就不再监听以及将异步加载场景停止掉
                 progress = null;
                 OnSceceLoad = null;

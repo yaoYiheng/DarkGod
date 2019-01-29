@@ -25,17 +25,23 @@ public class LoginSystem : Singleton<LoginSystem>
     {
 
         //异步加载登录场景
-        GameRoot.Instance.resourceService.AsyncLoadScene(Consts.S_LoadingScene);
+        //GameRoot.Instance.resourceService.AsyncLoadScene(Consts.S_LoadingScene, EnterLoginWindow);
 
-
+        //可以更进步简化. Lambda表达式
+        //连下面的方法也可以省略
+        GameRoot.Instance.resourceService.AsyncLoadScene(Consts.S_LoadingScene, ()=>
+        {
+            LoginWindow.gameObject.SetActive(true);
+            LoginWindow.InitLogin();
+        });
     }
 
     ////加载完成后打开注册登录页面
-    public void EnterLoginWindow()
-    {
-        LoginWindow.gameObject.SetActive(true);
-        LoginWindow.InitLogin();
-    }
+    //public void EnterLoginWindow()
+    //{
+    //    LoginWindow.gameObject.SetActive(true);
+    //    LoginWindow.InitLogin();
+    //}
 
 
 }
