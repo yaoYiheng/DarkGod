@@ -37,6 +37,7 @@ public class UILoadingWindow : UIWindowRoot
     protected override void InitUIwindow()
     {
         base.InitUIwindow();
+
         m_TipsText.text = "这是一条提示...";
         m_ProgressText.text = "0%";
         m_ProgressImage.fillAmount = 0f;
