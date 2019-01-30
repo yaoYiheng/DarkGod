@@ -7,6 +7,7 @@
 *****************************************************/
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class ResourceService : Singleton<ResourceService>
 {
 
     private Action OnSceceLoad;
+    Dictionary<string, AudioClip> m_Audios = new Dictionary<string, AudioClip>();
 
     public override void Init()
     {
@@ -68,6 +70,21 @@ public class ResourceService : Singleton<ResourceService>
 
     }
 
+    public AudioClip LoadClip(string path, bool cached)
+    {
+        AudioClip clip = null;
+        if (!m_Audios.TryGetValue(path, out clip))
+        {
+            clip = Resources.Load<AudioClip>(path);
+            if (cached)
+            {
+                m_Audios[path] = clip;
+            }
+        }
+
+
+        return clip;
+    }
     private void Update()
     {
         if (OnSceceLoad != null)

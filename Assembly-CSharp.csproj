@@ -64,6 +64,7 @@
     <Compile Include="Assets\Resources\Scripts\Common\Consts.cs" />
     <Compile Include="Assets\Resources\Scripts\Common\UIWindowRoot.cs" />
     <Compile Include="Assets\Resources\Scripts\GameRoot.cs" />
+    <Compile Include="Assets\Resources\Scripts\Services\AudioService.cs" />
     <Compile Include="Assets\Resources\Scripts\Services\ResourceService.cs" />
     <Compile Include="Assets\Resources\Scripts\Singleton\Singleton.cs" />
     <Compile Include="Assets\Resources\Scripts\System\LoginSystem.cs" />

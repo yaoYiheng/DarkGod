@@ -9,12 +9,15 @@
 using UnityEngine;
 [RequireComponent(typeof(ResourceService))]
 [RequireComponent(typeof(LoginSystem))]
+[RequireComponent(typeof(AudioService))]
 public class GameRoot : Singleton<GameRoot> 
 {
     [HideInInspector]
     public ResourceService resourceService = null;
     [HideInInspector]
     public LoginSystem m_LoginSystem = null;
+    [HideInInspector]
+    public AudioService audioService = null;
     //该UI因为会在跳转场景中都使用到, 所以在这里赋值
 
 
@@ -23,11 +26,9 @@ public class GameRoot : Singleton<GameRoot>
     {
         //服务模块初始化
         resourceService.Init();
+        audioService.Init();
 
         //业务系统初始化
-
-
-
         InitSystems();
 
 
@@ -52,6 +53,7 @@ public class GameRoot : Singleton<GameRoot>
 
         resourceService = ResourceService.Instance;
         m_LoginSystem = LoginSystem.Instance;
+        audioService = AudioService.Instance;
 
         Init();
     }

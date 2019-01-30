@@ -36,6 +36,8 @@ public class LoginSystem : Singleton<LoginSystem>
 
             //简化后代替上面代码
             LoginWindow.SetWindowState(true);
+            //进入场景后, 播放背景音乐
+            GameRoot.Instance.audioService.PlayBGMusic(Consts.A_BGMClip, true);
         });
     }
 

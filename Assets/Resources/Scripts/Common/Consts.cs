@@ -12,5 +12,10 @@ using UnityEngine;
 
 public class Consts 
 {
+    //场景
     public const string S_LoadingScene = "01LoginScene";
+
+
+    //音频title
+    public const string A_BGMClip = "bgLogin";
 }
