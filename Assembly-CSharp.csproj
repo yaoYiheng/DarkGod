@@ -62,12 +62,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Scripts\Common\Consts.cs" />
+    <Compile Include="Assets\Resources\Scripts\Common\LoopAnimation.cs" />
+    <Compile Include="Assets\Resources\Scripts\Common\SystemRoot.cs" />
     <Compile Include="Assets\Resources\Scripts\Common\UIWindowRoot.cs" />
     <Compile Include="Assets\Resources\Scripts\GameRoot.cs" />
     <Compile Include="Assets\Resources\Scripts\Services\AudioService.cs" />
     <Compile Include="Assets\Resources\Scripts\Services\ResourceService.cs" />
     <Compile Include="Assets\Resources\Scripts\Singleton\Singleton.cs" />
     <Compile Include="Assets\Resources\Scripts\System\LoginSystem.cs" />
+    <Compile Include="Assets\Resources\Scripts\UIWindow\UIDynamicWindow.cs" />
     <Compile Include="Assets\Resources\Scripts\UIWindow\UILoadingWindow.cs" />
     <Compile Include="Assets\Resources\Scripts\UIWindow\UILoginWindow.cs" />
     <None Include="Assets\Compond\Shader\MogoSkybox.shader" />

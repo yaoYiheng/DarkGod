@@ -52,6 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224456003167946782}
+  - component: {fileID: 114095605921273424}
   m_Layer: 0
   m_Name: DynamicWindow
   m_TagString: Untagged
@@ -67,13 +68,26 @@ Animation:
   m_GameObject: {fileID: 1157352976683740}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: ca1c17a64dea64473a38c253188b3924, type: 2}
+  m_Animation: {fileID: 7400000, guid: 703cce2498aae4be5b1df24fd4a065d0, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 703cce2498aae4be5b1df24fd4a065d0, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114095605921273424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270857660159858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967992978307b4d2580075109d48c3dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TipsText: {fileID: 114148669748796874}
+  TipsAnimation: {fileID: 111327152371041238}
 --- !u!114 &114148669748796874
 MonoBehaviour:
   m_ObjectHideFlags: 1

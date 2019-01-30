@@ -13,7 +13,8 @@ using UnityEngine.UI;
 public class UIWindowRoot : MonoBehaviour
 {
     //如果在其子类中需要加载资源, 则可以使用这个成员变量
-    public ResourceService resourceService = null;
+    protected ResourceService resourceService = null;
+    protected AudioService audioService = null;
 
     public void SetWindowState(bool isActive = true)
     {
@@ -42,6 +43,7 @@ public class UIWindowRoot : MonoBehaviour
     protected virtual void InitUIwindow()
     {
         resourceService = ResourceService.Instance;
+        audioService = AudioService.Instance;
     }
 
     //对零碎的代码进行整合

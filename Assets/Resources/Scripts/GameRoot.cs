@@ -22,6 +22,7 @@ public class GameRoot : Singleton<GameRoot>
 
 
     public UILoadingWindow UILoadingWindow;
+    public UIDynamicWindow UIDynamicWindow;
     public override void Init()
     {
         //服务模块初始化
@@ -50,13 +51,32 @@ public class GameRoot : Singleton<GameRoot>
         Debug.Log("游戏开始");
 
         DontDestroyOnLoad(this.gameObject);
-
+        //对绑定在GR上的组件赋值
         resourceService = ResourceService.Instance;
         m_LoginSystem = LoginSystem.Instance;
         audioService = AudioService.Instance;
 
+        //初始化
         Init();
+        //调试用, 清零UI
+        ClearUI();
+        //只显示Tips
+        UIDynamicWindow.SetWindowState();
+
+    }
+
+    public static void AddTips(string tips)
+    {
+        Instance.UIDynamicWindow.AddTips(tips);
     }
 
 
+    private void ClearUI()
+    {
+        var canvas = transform.Find("Canvas");
+        for (int i = 0; i < canvas.childCount; i++)
+        {
+            canvas.transform.GetChild(i).gameObject.SetActive(false);
+        }
+    }
 }

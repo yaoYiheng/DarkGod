@@ -10,12 +10,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class LoginSystem : Singleton<LoginSystem> 
+public class LoginSystem : SystemRoot<LoginSystem>
 {
     public UILoginWindow LoginWindow;
 
     public override void Init()
     {
+        base.Init();
         Debug.Log("初始化登录系统");
 
     }
@@ -30,6 +31,7 @@ public class LoginSystem : Singleton<LoginSystem>
         //可以更进步简化. Lambda表达式
         //连下面的方法也可以省略
         GameRoot.Instance.resourceService.AsyncLoadScene(Consts.S_LoadingScene, ()=>
+
         {
             //LoginWindow.gameObject.SetActive(true);
             //LoginWindow.InitLogin();
@@ -37,7 +39,11 @@ public class LoginSystem : Singleton<LoginSystem>
             //简化后代替上面代码
             LoginWindow.SetWindowState(true);
             //进入场景后, 播放背景音乐
-            GameRoot.Instance.audioService.PlayBGMusic(Consts.A_BGMClip, true);
+            //GameRoot.Instance.audioService.PlayBGMusic(Consts.A_BGMClip, true);
+            //继承了SystemRoot后, 可进一步简化
+            audioService.PlayBGMusic(Consts.A_BGMClip, true);
+
+
         });
     }
 
