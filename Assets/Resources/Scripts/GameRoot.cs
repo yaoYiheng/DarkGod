@@ -59,12 +59,18 @@ public class GameRoot : Singleton<GameRoot>
         //初始化
         Init();
         //调试用, 清零UI
-        ClearUI();
+        //ClearUI();
         //只显示Tips
         UIDynamicWindow.SetWindowState();
 
     }
 
+    public static void PlayEffect(string title)
+    {
+        Instance.audioService.PlayEffect(title);
+    }
+
+    //全局添加提示
     public static void AddTips(string tips)
     {
         Instance.UIDynamicWindow.AddTips(tips);

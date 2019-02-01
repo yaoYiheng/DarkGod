@@ -12,10 +12,19 @@ using UnityEngine;
 
 public class Consts 
 {
+
+    //资源路径
+    public static string AudioPath = Application.streamingAssetsPath + @"/ResAudio/";
     //场景
     public const string S_LoadingScene = "01LoginScene";
 
 
     //音频title
     public const string A_BGMClip = "bgLogin";
+    public const string A_Login = "uiLoginBtn";
+    public const string A_ButtonClick = "uiClickBtn";
+
+    //存档key
+    public const string SavingAccount = "Account";
+    public const string SavingPassword = "Password";
 }

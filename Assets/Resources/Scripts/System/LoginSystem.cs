@@ -13,7 +13,7 @@ using UnityEngine;
 public class LoginSystem : SystemRoot<LoginSystem>
 {
     public UILoginWindow LoginWindow;
-
+    public UICreatWindow UICreatWindow;
     public override void Init()
     {
         base.Init();
@@ -54,5 +54,15 @@ public class LoginSystem : SystemRoot<LoginSystem>
     //    LoginWindow.InitLogin();
     //}
 
+    // 模拟当请求返回时跳转
+    public void ReqLogin()
+    {
+        GameRoot.AddTips("登录成功");
 
+        //显示创建页面
+        UICreatWindow.SetWindowState();
+        //隐藏登录页面
+        LoginWindow.SetWindowState(false);
+
+    }
 }

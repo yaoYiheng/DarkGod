@@ -38,7 +38,7 @@ public class AudioService : Singleton<AudioService>
 
     public void PlayEffect(string title)
     {
-        var path = "ResAudio" + title;
+        var path = "ResAudio/" + title;
 
         var clip = ResourceService.Instance.LoadClip(path, true);
 

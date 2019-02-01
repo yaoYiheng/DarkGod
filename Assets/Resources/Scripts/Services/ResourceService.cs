@@ -8,18 +8,22 @@
 
 using System;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ResourceService : Singleton<ResourceService> 
+public class ResourceService : Singleton<ResourceService>
 {
 
     private Action OnSceceLoad;
     Dictionary<string, AudioClip> m_Audios = new Dictionary<string, AudioClip>();
-
+    List<string> m_Surname = new List<string>();
+    List<string> m_MaleName = new List<string>();
+    List<string> m_FemaleName = new List<string>();
     public override void Init()
     {
         Debug.Log("初始化资源服务");
+        LoadFromFile();
     }
 
     //异步加载场景
@@ -70,12 +74,15 @@ public class ResourceService : Singleton<ResourceService>
 
     }
 
+    // 返回音频资源
     public AudioClip LoadClip(string path, bool cached)
     {
         AudioClip clip = null;
         if (!m_Audios.TryGetValue(path, out clip))
         {
             clip = Resources.Load<AudioClip>(path);
+            ////Resources.LoadAll<>();
+            //Tools.LoadClip(path,ref clip);
             if (cached)
             {
                 m_Audios[path] = clip;
@@ -85,6 +92,63 @@ public class ResourceService : Singleton<ResourceService>
 
         return clip;
     }
+
+    //从文件中加载到内存
+    void LoadFromFile()
+    {
+        TextAsset asset = Resources.Load<TextAsset>("ResCfgs/rdname");
+        //加载XML文件
+
+        if (asset == null)
+        {
+            Debug.Log("文件为空");
+        }
+        else//添加到字典中
+        {
+            XmlDocument document = new XmlDocument();
+            document.LoadXml(asset.text);
+
+            XmlNodeList xmlNodeList = document.SelectSingleNode("root").ChildNodes;
+            for (int i = 0; i < xmlNodeList.Count; i++)
+            {
+                XmlElement element = xmlNodeList[i] as XmlElement;
+                if (element.GetAttributeNode("ID") == null) continue;
+
+                foreach (XmlElement item in xmlNodeList[i].ChildNodes)
+                {
+                    switch (item.Name)
+                    {
+                        case "surname":
+                            m_Surname.Add(element.InnerText);
+                            break;
+                        case "man":
+                            m_MaleName.Add(element.InnerText);
+                            break;
+                        case "woman":
+                            m_FemaleName.Add(element.InnerText);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+            }
+        }
+
+
+    }
+
+
+    public string GetRandomName(bool isFamle)
+    {
+        System.Random random = new System.Random();
+        var rdName = m_Surname[Tools.RandomInt(0, m_Surname.Count - 1)];
+        rdName += isFamle? m_FemaleName[Tools.RandomInt(0, m_FemaleName.Count - 1)]:m_MaleName[Tools.RandomInt(0, m_MaleName.Count - 1)];
+
+        return rdName;
+    }
+
+    #region 系统回调
     private void Update()
     {
         if (OnSceceLoad != null)
@@ -92,4 +156,5 @@ public class ResourceService : Singleton<ResourceService>
             OnSceceLoad();
         }
     }
+    #endregion
 }

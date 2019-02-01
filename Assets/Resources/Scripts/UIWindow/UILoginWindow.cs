@@ -23,10 +23,10 @@ public class UILoginWindow : UIWindowRoot
     {
         base.InitUIwindow();
         //如果不是第一次登录, 就显示曾经保存的值和密码
-        if (PlayerPrefs.HasKey("Account") && PlayerPrefs.HasKey("Password"))
+        if (PlayerPrefs.HasKey(Consts.SavingAccount) && PlayerPrefs.HasKey(Consts.SavingPassword))
         {
-            m_AccountField.text = PlayerPrefs.GetString("Account");
-            m_PasswordField.text = PlayerPrefs.GetString("Password");
+            m_AccountField.text = PlayerPrefs.GetString(Consts.SavingAccount);
+            m_PasswordField.text = PlayerPrefs.GetString(Consts.SavingPassword);
         }
         else
         {
@@ -37,9 +37,31 @@ public class UILoginWindow : UIWindowRoot
 
     public void OnEnterClick()
     {
+        //GameRoot.Instance.audioService.PlayEffect(Consts.A_Login);
+        GameRoot.PlayEffect(Consts.A_Login);
         //保存玩家输入
+        var account = m_AccountField.text;
+        var password = m_PasswordField.text;
+
+        //对输入进行判断
+        if (account != "" && password != "")
+        {
+            //保存
+            PlayerPrefs.SetString(Consts.SavingAccount, account);
+            PlayerPrefs.SetString(Consts.SavingPassword, password);
+
+            //发送网络请求
+
+            //切换场景
+            LoginSystem.Instance.ReqLogin();
+
+        }
 
         //进入游戏
+    }
+    public void OnNoticeClick()
+    {
+        GameRoot.PlayEffect(Consts.A_ButtonClick);
     }
 
 }
