@@ -1,25 +1,26 @@
 ﻿<Properties StartupConfiguration="{74517C5A-3D96-83E5-DC95-5845B4929015}|">
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/UIWindow/UICreatWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/Services/ResourceService.cs">
     <Files>
       <File FileName="Assets/Resources/Scripts/UIWindow/UIDynamicWindow.cs" Line="45" Column="35" />
       <File FileName="Assets/Resources/Scripts/UIWindow/UILoginWindow.cs" Line="32" Column="10" />
-      <File FileName="Assets/Resources/Scripts/Services/ResourceService.cs" Line="144" Column="1" />
+      <File FileName="Assets/Resources/Scripts/Services/ResourceService.cs" Line="153" Column="6" />
       <File FileName="Assets/Resources/Scripts/GameRoot.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/Scripts/UIWindow/UICreatWindow.cs" Line="29" Column="22" />
+      <File FileName="Assets/Resources/Scripts/UIWindow/UICreatWindow.cs" Line="31" Column="65" />
       <File FileName="Assets/Resources/Scripts/UIWindow/UILoadingWindow.cs" Line="18" Column="24" />
       <File FileName="Assets/Resources/Scripts/Common/Tools.cs" Line="22" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/yiheng/Documents/Unity相关/DarkGod/Assets/Resources/Scripts/UIWindow/UICreatWindow.cs" relfile="Assets/Resources/Scripts/UIWindow/UICreatWindow.cs" line="31" column="1" />
       <Breakpoint file="/Users/yiheng/Documents/Unity相关/DarkGod/Assets/Resources/Scripts/UIWindow/UICreatWindow.cs" relfile="Assets/Resources/Scripts/UIWindow/UICreatWindow.cs" line="32" column="1" />
+      <Breakpoint file="/Users/yiheng/Documents/Unity相关/DarkGod/Assets/Resources/Scripts/Services/ResourceService.cs" relfile="Assets/Resources/Scripts/Services/ResourceService.cs" line="145" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <AuthorInfo Name="yiheng" Email="fn1117@qq.com" Copyright="" Company="" Trademark="" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor-firstpass PreferredExecutionTarget="Unity.Editor" />
+  <AuthorInfo Name="yiheng" Email="fn1117@qq.com" Copyright="" Company="" Trademark="" />
 </Properties>
