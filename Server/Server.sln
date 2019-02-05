@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{0EAA5E63-86D9-4FFF-9469-36A111B68809}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PEProtocol", "PEProtocol\PEProtocol.csproj", "{9E35E1A3-3539-422D-BBCB-BB6EEE7CFDB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EAA5E63-86D9-4FFF-9469-36A111B68809}.Debug|x86.ActiveCfg = Debug|x86
+		{0EAA5E63-86D9-4FFF-9469-36A111B68809}.Debug|x86.Build.0 = Debug|x86
+		{0EAA5E63-86D9-4FFF-9469-36A111B68809}.Release|x86.ActiveCfg = Release|x86
+		{0EAA5E63-86D9-4FFF-9469-36A111B68809}.Release|x86.Build.0 = Release|x86
+		{9E35E1A3-3539-422D-BBCB-BB6EEE7CFDB7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9E35E1A3-3539-422D-BBCB-BB6EEE7CFDB7}.Debug|x86.Build.0 = Debug|Any CPU
+		{9E35E1A3-3539-422D-BBCB-BB6EEE7CFDB7}.Release|x86.ActiveCfg = Release|Any CPU
+		{9E35E1A3-3539-422D-BBCB-BB6EEE7CFDB7}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

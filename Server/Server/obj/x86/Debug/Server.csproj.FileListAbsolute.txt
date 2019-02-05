@@ -1,0 +1,11 @@
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/obj/x86/Debug/Server.csprojAssemblyReference.cache
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/obj/x86/Debug/Server.csproj.CoreCompileInputs.cache
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/bin/Debug/Server.exe
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/bin/Debug/Server.pdb
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/obj/x86/Debug/Server.exe
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/obj/x86/Debug/Server.pdb
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/bin/Debug/PEProtocol.dll
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/bin/Debug/PESocket.dll
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/bin/Debug/PEProtocol.pdb
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/bin/Debug/PESocket.pdb
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/obj/x86/Debug/Server.csproj.CopyComplete

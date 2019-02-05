@@ -1,0 +1,42 @@
+﻿<Properties StartupConfiguration="{0EAA5E63-86D9-4FFF-9469-36A111B68809}|Default">
+  <MonoDevelop.Ide.ItemProperties.Server PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Server/02System/01LoginSys/LoginSystem.cs">
+    <Files>
+      <File FileName="Server/00Common/ServerStart.cs" Line="15" Column="1" />
+      <File FileName="Server/00Common/ServerRoot.cs" Line="29" Column="37" />
+      <File FileName="Server/01Service/01NetService/NetSerive.cs" Line="7" Column="18" />
+      <File FileName="Server/02System/01LoginSys/LoginSystem.cs" Line="29" Column="1" />
+      <File FileName="PEProtocol/GameMessage.cs" Line="13" Column="28" />
+      <File FileName="Server/01Service/01NetService/ServerSession.cs" Line="26" Column="32" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Server" expanded="True">
+            <Node name="PEProtocol" expanded="True">
+              <Node name="References" expanded="True" />
+            </Node>
+            <Node name="Server" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="00Common" expanded="True" />
+              <Node name="01Service" expanded="True">
+                <Node name="01NetService" expanded="True" />
+              </Node>
+              <Node name="02System" expanded="True">
+                <Node name="01LoginSys" expanded="True">
+                  <Node name="LoginSystem.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
