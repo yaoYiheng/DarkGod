@@ -24,6 +24,8 @@ public class ServerRoot
 
         //服务层
         NetSerive.Instance.Init();
+        CacheService.Instance.InitCacheService();
+
 
         //业务逻辑层
         LoginSystem.Instance.Init();

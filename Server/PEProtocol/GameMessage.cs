@@ -24,9 +24,30 @@ namespace PEProtocol
 
     [Serializable]
     public class LoginRespond
-    { 
+    {
+        public PlayerData playerData;
     }
 
+    //因为需要转换成2进制在网络传输, 所以会加上[Serializable]
+    [Serializable]
+    public class PlayerData
+    {
+        public int id;
+        public string name;
+        public int level;
+        public int experience;
+        public int power;
+        public int coin;
+        public int diamond;
+
+        //待续
+    }
+    public enum ErrorCode
+    {
+        None = 0, //没有错误
+        AccountOnLine, // 账号在线
+        WrongPassword
+    }
     public enum CMD
     {
         None = 0,
