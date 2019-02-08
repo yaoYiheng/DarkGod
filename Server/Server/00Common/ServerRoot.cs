@@ -29,4 +29,9 @@ public class ServerRoot
         LoginSystem.Instance.Init();
 
     }
+
+    public void Update()
+    {
+        NetSerive.Instance.Update();
+    }
 }

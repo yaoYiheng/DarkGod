@@ -1,18 +1,19 @@
 ﻿<Properties StartupConfiguration="{0EAA5E63-86D9-4FFF-9469-36A111B68809}|Default">
   <MonoDevelop.Ide.ItemProperties.Server PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Server/02System/01LoginSys/LoginSystem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Server/00Common/ServerStart.cs">
     <Files>
-      <File FileName="Server/00Common/ServerStart.cs" Line="19" Column="2" />
-      <File FileName="Server/00Common/ServerRoot.cs" Line="29" Column="37" />
-      <File FileName="Server/01Service/01NetService/NetSerive.cs" Line="67" Column="35" />
-      <File FileName="Server/01Service/01NetService/ServerSession.cs" Line="23" Column="9" />
-      <File FileName="Server/02System/01LoginSys/LoginSystem.cs" Line="40" Column="9" />
+      <File FileName="Server/00Common/ServerStart.cs" Line="15" Column="1" />
+      <File FileName="Server/00Common/ServerRoot.cs" Line="33" Column="20" />
+      <File FileName="Server/01Service/01NetService/NetSerive.cs" Line="49" Column="23" />
+      <File FileName="Server/01Service/01NetService/ServerSession.cs" Line="13" Column="38" />
+      <File FileName="Server/02System/01LoginSys/LoginSystem.cs" Line="37" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
+      <Breakpoint file="/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/00Common/ServerStart.cs" relfile="Server/00Common/ServerStart.cs" line="15" column="42" />
       <Breakpoint file="/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/01Service/01NetService/ServerSession.cs" relfile="Server/01Service/01NetService/ServerSession.cs" line="20" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -15,16 +15,18 @@ public class ClientSession : PESession<GameMessage>
 {
     protected override void OnConnected()
     {
-        base.OnConnected();
+        GameRoot.AddTips("连接服务器成功");
+        Common.Log("连接服务器成功");
     }
 
     protected override void OnDisConnected()
     {
-        base.OnDisConnected();
+        GameRoot.AddTips("服务器断开连接");
+        Common.Log("连接服务器成功");
     }
 
     protected override void OnReciveMsg(GameMessage msg)
     {
-        base.OnReciveMsg(msg);
+        Common.Log("接受数据包: " + ((CMD)msg.cmd).ToString());
     }
 }

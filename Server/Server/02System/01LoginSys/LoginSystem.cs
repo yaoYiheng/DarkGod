@@ -42,7 +42,7 @@ public class LoginSystem
             cmd = (int)CMD.LoginResponse,
             loginRespond = new LoginRespond()
         };
-
+        Console.WriteLine("向客户端发送");
         pack.serverSession.SendMsg(message);
 
     }
