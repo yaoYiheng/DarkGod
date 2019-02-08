@@ -26,8 +26,24 @@ public class LoginSystem
         Common.Log("登录系统初始化完成");
     }
 
-    public void LoginRequest(GameMessage message)
+    public void LoginRequest(MessagePack pack)
     {
+        //检测当前账号是否已经上线
+
+        //已上线: 返回错误信息
+        //未上线:
+        //账号是否存在
+        //存在, 检测密码
+        //不存在, 创建默认账号密码
+
+        //回应客户端.
+        GameMessage message = new GameMessage()
+        {
+            cmd = (int)CMD.LoginResponse,
+            loginRespond = new LoginRespond()
+        };
+
+        pack.serverSession.SendMsg(message);
 
     }
 }

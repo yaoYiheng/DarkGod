@@ -7,11 +7,24 @@ using System.Collections.Generic;
 using PENet;
 using PEProtocol;
 
+
+public class MessagePack
+{
+    public ServerSession serverSession;
+    public GameMessage gameMessage;
+    public MessagePack(ServerSession session, GameMessage message)
+    {
+        this.serverSession = session;
+        this.gameMessage = message;
+    }
+
+}
+
 public class NetSerive
 {
     static NetSerive m_Instance = null;
     static readonly string obj = "lock";
-    Queue<GameMessage> msgPackQueue = new Queue<GameMessage>();
+    Queue<MessagePack> msgPackQueue = new Queue<MessagePack>();
     public static NetSerive Instance
     {
         get
@@ -33,11 +46,11 @@ public class NetSerive
     }
 
     //加入消息到队列
-    public void AddMessage(GameMessage message)
+    public void AddMessage(MessagePack pack)
     {
         lock (obj)
         {
-            msgPackQueue.Enqueue(message);
+            msgPackQueue.Enqueue(pack);
         }
     }
 
@@ -50,8 +63,8 @@ public class NetSerive
             //取出数据
             lock (obj)
             {
-                GameMessage message = msgPackQueue.Dequeue();
-                HandleMessage(message);
+                MessagePack pack = msgPackQueue.Dequeue();
+                HandleMessage(pack);
             }
 
 
@@ -60,12 +73,12 @@ public class NetSerive
     }
 
     //分发处理数据
-    private void HandleMessage(GameMessage message)
+    private void HandleMessage(MessagePack pack)
     {
-        switch ((CMD)message.cmd)
+        switch ((CMD)pack.gameMessage.cmd)
         {
             case CMD.LoginRequest:
-                LoginSystem.Instance.LoginRequest(message);
+                LoginSystem.Instance.LoginRequest(pack);
                 break;
 
             default:

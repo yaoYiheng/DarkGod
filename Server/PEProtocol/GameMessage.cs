@@ -12,6 +12,7 @@ namespace PEProtocol
     {
         //public string text;
         public LoginRequest loginRequest;
+        public LoginRespond loginRespond;
     }
 
     [Serializable]
@@ -19,6 +20,11 @@ namespace PEProtocol
     {
         public string Account;
         public string Password;
+    }
+
+    [Serializable]
+    public class LoginRespond
+    { 
     }
 
     public enum CMD

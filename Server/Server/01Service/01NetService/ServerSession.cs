@@ -18,6 +18,9 @@ public class ServerSession : PESession<GameMessage>
     {
 
         Common.Log("Client Req:" + msg.cmd.ToString());
+        //将来自客户端的消息传递给服务器的网络服务(NetService)进行处理
+        NetSerive.Instance.AddMessage(new MessagePack(this, msg));
+
         //SendMsg(new GameMessage() { text = "服务器: " + msg.text });
     }
     protected override void OnDisConnected()
