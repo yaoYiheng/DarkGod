@@ -686,7 +686,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.306
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1147,6 +1147,7 @@ GameObject:
   - component: {fileID: 1836288261}
   - component: {fileID: 1836288262}
   - component: {fileID: 1836288263}
+  - component: {fileID: 1836288265}
   - component: {fileID: 1836288264}
   m_Layer: 0
   m_Name: GameRoot
@@ -1218,12 +1219,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1836288259}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ea06685f4e745e58aa955f33927423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1836288265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1836288259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b434112cf21045fc8c0495bfc706d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   resourceService: {fileID: 0}
   m_LoginSystem: {fileID: 0}
   audioService: {fileID: 0}
+  netService: {fileID: 0}
   UILoadingWindow: {fileID: 1527823114}
   UIDynamicWindow: {fileID: 1736617152}
 --- !u!224 &1892395026 stripped

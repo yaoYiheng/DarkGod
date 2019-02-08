@@ -7,6 +7,7 @@
 *****************************************************/
 using System.Collections;
 using System.Collections.Generic;
+using PEProtocol;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,10 +52,24 @@ public class UILoginWindow : UIWindowRoot
             PlayerPrefs.SetString(Consts.SavingPassword, password);
 
             //发送网络请求
+            GameMessage message = new GameMessage
+            {
+                cmd = (int)CMD.LoginRequest,
+                loginRequest = new LoginRequest()
+                {
+                    Account = account,
+                    Password = password
+                }
 
+            };
+            netService.SendMessages(message);
             //切换场景
             LoginSystem.Instance.ReqLogin();
 
+        }
+        else
+        {
+            GameRoot.AddTips("账号或密码为空");
         }
 
         //进入游戏

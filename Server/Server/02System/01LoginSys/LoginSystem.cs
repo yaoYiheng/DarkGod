@@ -23,6 +23,11 @@ public class LoginSystem
 
     public void Init()
     {
-        PETool.LogMsg("登录系统初始化完成");
+        Common.Log("登录系统初始化完成");
+    }
+
+    public void LoginRequest(GameMessage message)
+    {
+
     }
 }

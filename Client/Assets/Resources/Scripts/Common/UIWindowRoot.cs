@@ -15,6 +15,7 @@ public class UIWindowRoot : MonoBehaviour
     //如果在其子类中需要加载资源, 则可以使用这个成员变量
     protected ResourceService resourceService = null;
     protected AudioService audioService = null;
+    protected NetService netService = null;
 
     public void SetWindowState(bool isActive = true)
     {
@@ -38,12 +39,15 @@ public class UIWindowRoot : MonoBehaviour
 
     protected virtual void Clear()
     {
-
+        resourceService = null;
+        audioService = null;
+        netService = null;
     }
     protected virtual void InitUIwindow()
     {
         resourceService = ResourceService.Instance;
         audioService = AudioService.Instance;
+        netService = NetService.Instance;
     }
 
     //对零碎的代码进行整合

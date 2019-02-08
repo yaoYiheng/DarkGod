@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{12F44184-A422-5F27-22E6-507969043F15}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/Net/ClientSession.cs">
+    <Files>
+      <File FileName="Assets/Resources/Scripts/Services/NetService.cs" Line="38" Column="1" />
+      <File FileName="Assets/Resources/Scripts/GameRoot.cs" Line="34" Column="23" />
+      <File FileName="Assets/Resources/Scripts/Net/ClientSession.cs" Line="18" Column="28" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

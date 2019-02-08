@@ -14,6 +14,7 @@ public abstract class SystemRoot<T> : Singleton<T> where T: MonoBehaviour
 {
     protected AudioService audioService;
     protected ResourceService resourceService;
+    protected NetService netService;
 
 
     //之后如果还有计时系统等等还可继续添加
@@ -21,5 +22,6 @@ public abstract class SystemRoot<T> : Singleton<T> where T: MonoBehaviour
     {
         audioService = AudioService.Instance;
         resourceService = ResourceService.Instance;
+        netService = NetService.Instance;
     }
 }

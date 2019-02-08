@@ -7,3 +7,5 @@
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/obj/Debug/PEProtocol.csproj.CopyComplete
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/obj/Debug/PEProtocol.dll
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/obj/Debug/PEProtocol.pdb
+/Users/yiheng/Documents/Unity相关/DarkGod/Client/Assets/Resources/Scripts/Net/PEProtocol.dll
+/Users/yiheng/Documents/Unity相关/DarkGod/Client/Assets/Resources/Scripts/Net/PEProtocol.pdb
