@@ -53,7 +53,7 @@ public class LoginSystem
             //如果查找的玩家数据为空, 说明密码有问题, 返回新错误码
             if (playerData == null)
             {  //存在, 密码错误
-                message.err = (int)ErrorCode.WrongPassword;
+                //message.err = (int)ErrorCode.WrongPassword;
             }
             else//账号有效, 将获取到的玩家数据添加到回应客户端的数据包中
             {

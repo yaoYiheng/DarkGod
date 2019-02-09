@@ -1,0 +1,8 @@
+/Users/yiheng/Documents/Unity相关/DarkGod/MySqlTest/MySqlTest/bin/Debug/MySqlTest.exe
+/Users/yiheng/Documents/Unity相关/DarkGod/MySqlTest/MySqlTest/bin/Debug/MySqlTest.pdb
+/Users/yiheng/Documents/Unity相关/DarkGod/MySqlTest/MySqlTest/bin/Debug/MySql.Data.dll
+/Users/yiheng/Documents/Unity相关/DarkGod/MySqlTest/MySqlTest/obj/x86/Debug/MySqlTest.csprojAssemblyReference.cache
+/Users/yiheng/Documents/Unity相关/DarkGod/MySqlTest/MySqlTest/obj/x86/Debug/MySqlTest.csproj.CoreCompileInputs.cache
+/Users/yiheng/Documents/Unity相关/DarkGod/MySqlTest/MySqlTest/obj/x86/Debug/MySqlTest.csproj.CopyComplete
+/Users/yiheng/Documents/Unity相关/DarkGod/MySqlTest/MySqlTest/obj/x86/Debug/MySqlTest.exe
+/Users/yiheng/Documents/Unity相关/DarkGod/MySqlTest/MySqlTest/obj/x86/Debug/MySqlTest.pdb

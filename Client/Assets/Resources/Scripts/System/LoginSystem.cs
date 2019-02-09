@@ -7,6 +7,7 @@
 *****************************************************/
 using System.Collections;
 using System.Collections.Generic;
+using PEProtocol;
 using UnityEngine;
 
 
@@ -55,12 +56,23 @@ public class LoginSystem : SystemRoot<LoginSystem>
     //}
 
     // 模拟当请求返回时跳转
-    public void ReqLogin()
+    public void ReqLogin(GameMessage message)
     {
         GameRoot.AddTips("登录成功");
+        //将从服务器返回的数据保存起来
+        GameRoot.Instance.PlayerData = message.loginRespond.playerData;
+        //如果从服务器返回的默认的游戏玩家的名称为空, 则跳转到创建玩家的页面
+        if (message.loginRespond.playerData.name == "")
+        {
+            //显示创建页面
+            UICreatWindow.SetWindowState();
+        }
+        else
+        {
+            //进入主城.
+        }
 
-        //显示创建页面
-        UICreatWindow.SetWindowState();
+
         //隐藏登录页面
         LoginWindow.SetWindowState(false);
 

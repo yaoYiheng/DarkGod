@@ -4,17 +4,17 @@
     <Files>
       <File FileName="Server/00Common/ServerStart.cs" Line="19" Column="2" />
       <File FileName="Server/01Service/01NetService/NetSerive.cs" Line="55" Column="1" />
-      <File FileName="Server/02System/01LoginSys/LoginSystem.cs" Line="58" Column="47" />
+      <File FileName="Server/02System/01LoginSys/LoginSystem.cs" Line="56" Column="62" />
       <File FileName="PEProtocol/GameMessage.cs" Line="49" Column="22" />
       <File FileName="Server/03Cache/CacheService.cs" Line="60" Column="46" />
+      <File FileName="PEProtocol/Common.cs" Line="1" Column="1" />
+      <File FileName="Server/01Service/01NetService/ServerSession.cs" Line="18" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/01Service/01NetService/ServerSession.cs" relfile="Server/01Service/01NetService/ServerSession.cs" line="20" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

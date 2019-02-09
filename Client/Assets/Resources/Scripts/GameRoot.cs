@@ -6,6 +6,7 @@
 	功能：Nothing
 *****************************************************/
 
+using PEProtocol;
 using UnityEngine;
 [RequireComponent(typeof(ResourceService))]
 [RequireComponent(typeof(LoginSystem))]
@@ -23,9 +24,24 @@ public class GameRoot : Singleton<GameRoot>
     public NetService netService = null;
     //该UI因为会在跳转场景中都使用到, 所以在这里赋值
 
+    private PlayerData playerData;
 
     public UILoadingWindow UILoadingWindow;
     public UIDynamicWindow UIDynamicWindow;
+
+    public PlayerData PlayerData
+    {
+        get
+        {
+            return playerData;
+        }
+
+        set
+        {
+            playerData = value;
+        }
+    }
+
     public override void Init()
     {
         //服务模块初始化

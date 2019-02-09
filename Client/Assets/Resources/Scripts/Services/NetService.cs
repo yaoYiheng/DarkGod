@@ -14,6 +14,9 @@ using PEProtocol;
 public class NetService : Singleton<NetService>
 {
     PESocket<ClientSession, GameMessage> client;
+    Queue<GameMessage> msgQueue = new Queue<GameMessage>();
+    static readonly string obj = "lock";
+
     public override void Init()
     {
         client = new PESocket<ClientSession, GameMessage>();
@@ -41,6 +44,57 @@ public class NetService : Singleton<NetService>
         });
     }
 
+    public void AddMessage(GameMessage message)
+    {
+        lock (obj)
+        {
+            msgQueue.Enqueue(message);
+        }
+    }
+
+    private void Update()
+    {
+        if (msgQueue.Count > 0)
+        {
+            lock (obj)
+            {
+                var message = msgQueue.Dequeue();
+                HandleMessage(message);
+            }
+        }
+    }
+
+    private void HandleMessage(GameMessage message)
+    {
+        if (message.err != (int)ErrorCode.None)
+        {
+            switch ((ErrorCode)message.err)
+            {
+                case ErrorCode.AccountOnLine:
+                //账号已经在线
+                GameRoot.AddTips("该账号已经在线");
+                break;
+                case ErrorCode.WrongPassword:
+                GameRoot.AddTips("密码错误");
+                break;
+
+                default:
+                break;
+            }
+            return;
+        }
+
+        switch ((CMD)message.cmd)
+        {
+            case CMD.LoginResponse:
+            LoginSystem.Instance.ReqLogin(message);
+            break;
+            
+
+            default:
+            break;
+        }
+    }
     public void SendMessages(GameMessage message)
     {
         if (client.session != null)
@@ -53,15 +107,5 @@ public class NetService : Singleton<NetService>
             Init();
         }
     }
-    private void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     client.session.SendMsg(new GameMessage() { 
-        //     text = "Hello -- from Unity Client"
-            
-        //     });
 
-        // }
-    }
 }

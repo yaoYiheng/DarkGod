@@ -28,5 +28,6 @@ public class ClientSession : PESession<GameMessage>
     protected override void OnReciveMsg(GameMessage msg)
     {
         Common.Log("接受数据包: " + ((CMD)msg.cmd).ToString());
+        NetService.Instance.AddMessage(msg);
     }
 }

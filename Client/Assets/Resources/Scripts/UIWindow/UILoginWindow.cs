@@ -64,7 +64,7 @@ public class UILoginWindow : UIWindowRoot
             };
             netService.SendMessages(message);
             //切换场景
-            LoginSystem.Instance.ReqLogin();
+            // LoginSystem.Instance.ReqLogin();
 
         }
         else
