@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{0EAA5E63-86D9-4FFF-9469-36A111B68809}|Default">
   <MonoDevelop.Ide.ItemProperties.Server PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Server/03Cache/CacheService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PEProtocol/GameMessage.cs">
     <Files>
       <File FileName="Server/00Common/ServerStart.cs" Line="19" Column="2" />
       <File FileName="Server/01Service/01NetService/NetSerive.cs" Line="55" Column="1" />
-      <File FileName="Server/02System/01LoginSys/LoginSystem.cs" Line="51" Column="20" />
-      <File FileName="PEProtocol/GameMessage.cs" Line="28" Column="38" />
-      <File FileName="Server/03Cache/CacheService.cs" Line="33" Column="47" />
+      <File FileName="Server/02System/01LoginSys/LoginSystem.cs" Line="58" Column="47" />
+      <File FileName="PEProtocol/GameMessage.cs" Line="49" Column="22" />
+      <File FileName="Server/03Cache/CacheService.cs" Line="60" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
