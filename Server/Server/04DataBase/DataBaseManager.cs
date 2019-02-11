@@ -143,4 +143,66 @@ public class DataBaseManager
 
         return id;
     }
+
+    /// <summary>
+    ///  通过用户名在数据库中查找是否存在重名的玩家信息
+    /// </summary>
+    /// <returns><c>true</c>, if name was queryed, <c>false</c> otherwise.</returns>
+    /// <param name="name">Name.</param>
+    public bool QueryName(string name)
+    {
+        var isExit = false;
+        MySqlDataReader reader = null;
+        try
+        {
+            MySqlCommand command = new MySqlCommand("select * from darkgod where name = @name", connection);
+            command.Parameters.AddWithValue("name", name);
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                isExit = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            Common.Log("查找用户名错误:" + ex, LogType.Error);
+        }
+        finally
+        {
+            if (reader != null)
+            {
+                reader.Close();
+            }
+        }
+        return isExit;
+    }
+
+    /// <summary>
+    /// 将指定的id的name更新. 更新成功时返回true.
+    /// </summary>
+    public bool UpdatePlayerData(int id, PlayerData data)
+    {
+        try
+        {
+            MySqlCommand command = new MySqlCommand(
+            "update darkgod set name = @name, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond where id = @id", connection);
+
+            command.Parameters.AddWithValue("name", data.name);
+            command.Parameters.AddWithValue("level", data.level);
+            command.Parameters.AddWithValue("experience", data.experience);
+            command.Parameters.AddWithValue("power", data.power);
+            command.Parameters.AddWithValue("coin", data.coin);
+            command.Parameters.AddWithValue("diamond", data.diamond);
+            command.Parameters.AddWithValue("id", data.id);
+
+            command.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Common.Log("更新用户名失败:" + ex, LogType.Error);
+            return false;
+        }
+        return true;
+
+    }
 }

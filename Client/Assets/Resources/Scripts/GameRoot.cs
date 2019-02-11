@@ -41,6 +41,10 @@ public class GameRoot : Singleton<GameRoot>
             playerData = value;
         }
     }
+    public void ResetPlayerName(string name)
+    {
+        PlayerData.name = name;
+    }
 
     public override void Init()
     {

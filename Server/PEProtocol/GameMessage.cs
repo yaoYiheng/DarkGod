@@ -60,6 +60,9 @@ namespace PEProtocol
     public enum ErrorCode
     {
         None = 0, //没有错误
+
+        UpdateDataBaseError,//更新到数据库时错误
+
         AccountOnLine, // 账号在线
         WrongPassword,
         NameExit

@@ -141,7 +141,7 @@ public class ResourceService : Singleton<ResourceService>
 
     public string GetRandomName(bool isFamle)
     {
-        System.Random random = new System.Random();
+        // System.Random random = new System.Random();
         var rdName = m_Surname[Tools.RandomInt(0, m_Surname.Count - 1)];
         //rdName += isFamle? m_FemaleName[Tools.RandomInt(0, m_FemaleName.Count - 1)]:m_MaleName[Tools.RandomInt(0, m_MaleName.Count - 1)];
 

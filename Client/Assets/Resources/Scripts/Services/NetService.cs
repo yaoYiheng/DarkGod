@@ -70,6 +70,13 @@ public class NetService : Singleton<NetService>
         {
             switch ((ErrorCode)message.err)
             {
+                case ErrorCode.UpdateDataBaseError:
+                GameRoot.AddTips("当前网络不稳定");
+                break;
+                case ErrorCode.NameExit:
+                GameRoot.AddTips("该用户名存在, 请更换一个");
+                break;
+
                 case ErrorCode.AccountOnLine:
                 //账号已经在线
                 GameRoot.AddTips("该账号已经在线");
@@ -90,7 +97,9 @@ public class NetService : Singleton<NetService>
             LoginSystem.Instance.ReqLogin(message);
             break;
             
-
+            case CMD.RenameRespond:
+            LoginSystem.Instance.RenameRespond(message);
+            break;
             default:
             break;
         }

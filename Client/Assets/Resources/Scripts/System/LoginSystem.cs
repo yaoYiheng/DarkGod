@@ -77,4 +77,17 @@ public class LoginSystem : SystemRoot<LoginSystem>
         LoginWindow.SetWindowState(false);
 
     }
+
+
+/// 负责响应服务器回复的改名请求
+    public void RenameRespond(GameMessage message)
+    {
+        //将由服务器返回的名字更新到客户端
+        GameRoot.Instance.ResetPlayerName(message.renameRespond.name);
+
+        //跳转页面打开主城
+
+        //关闭创建角色的页面
+        UICreatWindow.SetWindowState(false);
+    }
 }

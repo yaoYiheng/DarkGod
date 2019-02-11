@@ -60,4 +60,37 @@ public class CacheService
         onlineSessionDict.Add(session, data);
 
     }
+
+    /// <summary>
+    /// 在数据库中查找重名
+    /// </summary>
+    public bool IsNameExit(string name)
+    {
+        return DataBaseManager.Instance.QueryName(name);
+    }
+
+    /// <summary>
+    /// 通过回话信息获取玩家信息
+    /// </summary>
+    /// <returns>The player data by session.</returns>
+    /// <param name="session">Session.</param>
+    public PlayerData GetPlayerDataBySession(ServerSession session)
+    {
+        if (onlineSessionDict.TryGetValue(session, out PlayerData playerData))
+        {
+            return playerData;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// 将玩家信息更新到id所指向的在数据库中的信息
+    /// </summary>
+    public bool UpdatePlayerDataToDataBase(int id, PlayerData data)
+    {
+        return DataBaseManager.Instance.UpdatePlayerData(id, data);
+    }
 }
