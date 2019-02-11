@@ -19,7 +19,7 @@ public class CacheService
     {
         get
         {
-            if(m_Instance == null)
+            if (m_Instance == null)
             {
                 m_Instance = new CacheService();
             }
@@ -47,7 +47,7 @@ public class CacheService
     {
         //需要从数据库中查找后并返回
         // 留给之后数据库中
-        return null;
+        return DataBaseManager.Instance.GetPlayerData(account, password);
     }
 
     /// <summary>

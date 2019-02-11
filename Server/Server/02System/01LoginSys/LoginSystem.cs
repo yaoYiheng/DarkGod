@@ -57,7 +57,11 @@ public class LoginSystem
             }
             else//账号有效, 将获取到的玩家数据添加到回应客户端的数据包中
             {
-                message.loginRespond.playerData = playerData;
+                //message.loginRespond.playerData = playerData;
+                message.loginRespond = new LoginRespond()
+                {
+                    playerData = playerData
+                };
             }
             //当前账号登录后, 把信息缓存
             cacheService.CacheInfo(data.Account, pack.serverSession, playerData);
@@ -66,5 +70,10 @@ public class LoginSystem
 
         pack.serverSession.SendMsg(message);
 
+    }
+
+    public void RenameRequest(MessagePack pack)
+    {
+        Common.Log("准备重命名");
     }
 }

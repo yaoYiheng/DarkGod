@@ -8,13 +8,17 @@ using PENet;
 namespace PEProtocol
 {
     [Serializable]
-    public class GameMessage: PEMsg
+    public class GameMessage : PEMsg
     {
         //public string text;
         public LoginRequest loginRequest;
         public LoginRespond loginRespond;
+
+        public RenameRequest renameRequest;
+        public RenameRespond renameRespond;
     }
 
+    #region 登录相关
     [Serializable]
     public class LoginRequest
     {
@@ -42,18 +46,34 @@ namespace PEProtocol
 
         //待续
     }
+    [Serializable]
+    public class RenameRequest
+    {
+        public string name;
+    }
+    [Serializable]
+    public class RenameRespond
+    {
+        public string name;
+    }
+    #endregion
     public enum ErrorCode
     {
         None = 0, //没有错误
         AccountOnLine, // 账号在线
-        WrongPassword
+        WrongPassword,
+        NameExit
     }
     public enum CMD
     {
         None = 0,
         //登录相关 100开始
-        LoginRequest = 101, 
-        LoginResponse = 102
+        LoginRequest = 101,
+        LoginResponse = 102,
+
+        RenameRequest = 103,
+        RenameRespond = 104,
+
     }
     public class ServiceConfigure
     {

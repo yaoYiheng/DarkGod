@@ -69,7 +69,7 @@ public class LoginSystem : SystemRoot<LoginSystem>
         }
         else
         {
-            //进入主城.
+            //TODO进入主城.
         }
 
 

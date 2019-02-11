@@ -10,3 +10,4 @@
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/bin/Debug/PESocket.pdb
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/obj/x86/Debug/Server.csproj.CopyComplete
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/bin/Debug/PEProtocol.dll.mdb
+/Users/yiheng/Documents/Unity相关/DarkGod/Server/Server/bin/Debug/MySql.Data.dll

@@ -69,7 +69,7 @@ public class NetSerive
 
 
 
-        } 
+        }
     }
 
     //分发处理数据
@@ -79,6 +79,9 @@ public class NetSerive
         {
             case CMD.LoginRequest:
                 LoginSystem.Instance.LoginRequest(pack);
+                break;
+            case CMD.RenameRequest:
+                LoginSystem.Instance.RenameRequest(pack);
                 break;
 
             default:

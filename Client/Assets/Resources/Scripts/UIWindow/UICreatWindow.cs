@@ -7,6 +7,7 @@
 *****************************************************/
 using System.Collections;
 using System.Collections.Generic;
+using PEProtocol;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,5 +41,16 @@ public class UICreatWindow : UIWindowRoot
             GameRoot.AddTips("请输入合法名称");
         }
         //发送请求;
+        else
+        {
+            netService.SendMessages(new GameMessage()
+            {
+                cmd = (int)CMD.RenameRequest,
+                renameRequest = new RenameRequest()
+                {
+                    name = iptName.text
+                }
+            });
+        }
     }
 }
