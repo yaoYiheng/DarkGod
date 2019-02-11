@@ -21,7 +21,7 @@ public class ServerRoot
     public void InitSertRoot()
     {
         //数据层
-
+        DataBaseManager.Instance.InitDataBase();
         //服务层
         NetSerive.Instance.Init();
         CacheService.Instance.InitCacheService();
