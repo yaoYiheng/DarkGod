@@ -999,7 +999,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1768143125402774, guid: fc778a99f666c4e3c94771826837338f, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114885851302156326, guid: fc778a99f666c4e3c94771826837338f,
         type: 2}
@@ -1010,6 +1010,10 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnEnterGameClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804099316614042, guid: fc778a99f666c4e3c94771826837338f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc778a99f666c4e3c94771826837338f, type: 2}
