@@ -44,6 +44,14 @@ namespace PEProtocol
         public int coin;
         public int diamond;
 
+        public int hp;
+        public int ad;//物理攻击
+        public int ap;//魔法攻击
+        public int addef;//物理防御
+        public int apdef; //魔法防御
+        public int dodge;//闪避概率
+        public int pierce;//穿透比率
+        public int critical;//暴击概率
         //待续
     }
     [Serializable]

@@ -17,10 +17,12 @@ public class Consts
     public static string AudioPath = Application.streamingAssetsPath + @"/ResAudio/";
     //场景
     public const string S_LoadingScene = "01LoginScene";
+    public const string S_MainCityScene = "02SceneMainCity";
 
 
     //音频title
     public const string A_BGMClip = "bgLogin";
+    public const string A_BGMCity = "bgMainCity";
     public const string A_Login = "uiLoginBtn";
     public const string A_ButtonClick = "uiClickBtn";
 

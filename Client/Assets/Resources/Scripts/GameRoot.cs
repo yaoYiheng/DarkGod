@@ -12,6 +12,7 @@ using UnityEngine;
 [RequireComponent(typeof(LoginSystem))]
 [RequireComponent(typeof(AudioService))]
 [RequireComponent(typeof(NetService))]
+[RequireComponent(typeof(MainCitySystem))]
 public class GameRoot : Singleton<GameRoot> 
 {
     [HideInInspector]
@@ -22,6 +23,9 @@ public class GameRoot : Singleton<GameRoot>
     public AudioService audioService = null;
     [HideInInspector]
     public NetService netService = null;
+
+    [HideInInspector]
+    public MainCitySystem m_MainCitySystem = null;
     //该UI因为会在跳转场景中都使用到, 所以在这里赋值
 
     private PlayerData playerData;
@@ -65,6 +69,7 @@ public class GameRoot : Singleton<GameRoot>
     {
         //初始化LoninSystem
         m_LoginSystem.Init();
+        m_MainCitySystem.Init();
         //进入登录场景并加载相应的UI 
         m_LoginSystem.EnterLogin();
     }
@@ -80,6 +85,7 @@ public class GameRoot : Singleton<GameRoot>
         m_LoginSystem = LoginSystem.Instance;
         audioService = AudioService.Instance;
         netService = NetService.Instance;
+        m_MainCitySystem = MainCitySystem.Instance;
         //初始化
         Init();
         //调试用, 清零UI

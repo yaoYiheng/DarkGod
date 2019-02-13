@@ -70,8 +70,8 @@ public class LoginSystem : SystemRoot<LoginSystem>
         else
         {
             //TODO进入主城.
+            MainCitySystem.Instance.EnterMainCity();
         }
-
 
         //隐藏登录页面
         LoginWindow.SetWindowState(false);
@@ -86,7 +86,7 @@ public class LoginSystem : SystemRoot<LoginSystem>
         GameRoot.Instance.ResetPlayerName(message.renameRespond.name);
 
         //跳转页面打开主城
-
+        MainCitySystem.Instance.EnterMainCity();
         //关闭创建角色的页面
         UICreatWindow.SetWindowState(false);
     }

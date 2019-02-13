@@ -70,7 +70,16 @@ public class DataBaseManager
                         experience = reader.GetInt32("experience"),
                         power = reader.GetInt32("power"),
                         coin = reader.GetInt32("coin"),
-                        diamond = reader.GetInt32("diamond")
+                        diamond = reader.GetInt32("diamond"),
+
+                        hp = reader.GetInt32("hp"),
+                        ad = reader.GetInt32("ad"),
+                        ap = reader.GetInt32("ap"),
+                        addef = reader.GetInt32("addef"),
+                        apdef = reader.GetInt32("apdef"),
+                        dodge = reader.GetInt32("dodge"),
+                        pierce = reader.GetInt32("pierce"),
+                        critical = reader.GetInt32("critical")
                         //待添加
                     };
                 }
@@ -98,7 +107,16 @@ public class DataBaseManager
                     experience = 0,
                     power = 100,
                     coin = 1000,
-                    diamond = 500
+                    diamond = 500,
+
+                    hp = 2000,
+                    ad = 275,
+                    ap = 265,
+                    addef = 67,
+                    apdef = 43,
+                    dodge = 7,
+                    pierce = 5,
+                    critical = 2,
                 };
                 //将插入到数据库后的id返回给默认创建的玩家数据的id
                 data.id = InsertPlayerData(account, password, data);
@@ -120,7 +138,8 @@ public class DataBaseManager
         try
         {
             MySqlCommand command = new MySqlCommand(
-            "insert into darkgod set account = @account, password = @password, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond", connection);
+            "insert into darkgod set account = @account, password = @password, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond, " +
+            "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical", connection);
             command.Parameters.AddWithValue("account", account);
             command.Parameters.AddWithValue("password", password);
             command.Parameters.AddWithValue("name", data.name);
@@ -129,6 +148,15 @@ public class DataBaseManager
             command.Parameters.AddWithValue("power", data.power);
             command.Parameters.AddWithValue("coin", data.coin);
             command.Parameters.AddWithValue("diamond", data.diamond);
+
+            command.Parameters.AddWithValue("hp", data.hp);
+            command.Parameters.AddWithValue("ad", data.ad);
+            command.Parameters.AddWithValue("ap", data.ap);
+            command.Parameters.AddWithValue("addef", data.addef);
+            command.Parameters.AddWithValue("apdef", data.apdef);
+            command.Parameters.AddWithValue("dodge", data.dodge);
+            command.Parameters.AddWithValue("pierce", data.pierce);
+            command.Parameters.AddWithValue("critical", data.critical);
 
             command.ExecuteNonQuery();
             //返回插入的最后一条数据的id
@@ -185,7 +213,8 @@ public class DataBaseManager
         try
         {
             MySqlCommand command = new MySqlCommand(
-            "update darkgod set name = @name, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond where id = @id", connection);
+            "update darkgod set name = @name, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond," +
+             "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical where id = @id", connection);
 
             command.Parameters.AddWithValue("name", data.name);
             command.Parameters.AddWithValue("level", data.level);
@@ -195,6 +224,15 @@ public class DataBaseManager
             command.Parameters.AddWithValue("diamond", data.diamond);
             command.Parameters.AddWithValue("id", data.id);
 
+            command.Parameters.AddWithValue("hp", data.hp);
+            command.Parameters.AddWithValue("ad", data.ad);
+            command.Parameters.AddWithValue("ap", data.ap);
+            command.Parameters.AddWithValue("addef", data.addef);
+            command.Parameters.AddWithValue("apdef", data.apdef);
+
+            command.Parameters.AddWithValue("dodge", data.dodge);
+            command.Parameters.AddWithValue("pierce", data.pierce);
+            command.Parameters.AddWithValue("critical", data.critical);
             command.ExecuteNonQuery();
         }
         catch (Exception ex)
