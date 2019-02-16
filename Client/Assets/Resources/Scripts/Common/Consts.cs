@@ -29,4 +29,8 @@ public class Consts
     //存档key
     public const string SavingAccount = "Account";
     public const string SavingPassword = "Password";
+
+    //标准屏幕宽高
+    public const float ScreenStandWidth = 5120;
+    public const float ScreenStandHeight = 2880;
 }

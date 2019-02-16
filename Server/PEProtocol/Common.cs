@@ -30,4 +30,9 @@ public class Common
     {
         return ((level - 1) / 10) * 150 + 150;
     }
+
+    public static int GetLevelUpExp(int level)
+    {
+        return level * level * 100;
+    }
 }
