@@ -4,8 +4,9 @@
 // 201928191
 using System;
 using PENet;
+using PEProtocol;
 
-public  enum LogType
+public enum LogType
 {
     Log = 0,
     Warning = 1,
@@ -18,5 +19,15 @@ public class Common
     {
         LogLevel level = (LogLevel)logType;
         PETool.LogMsg(msg, level);
+    }
+
+    public static int GetFightPointByData(PlayerData data)
+    {
+        return data.level * 100 + data.ad + data.addef + data.ap + data.apdef;
+    }
+
+    public static int GetPowerLimit(int level)
+    {
+        return ((level - 1) / 10) * 150 + 150;
     }
 }

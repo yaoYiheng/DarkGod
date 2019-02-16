@@ -314,6 +314,15 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1625822441809318, guid: 4c0019e7debe943fbab120a80db5001e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114560104543730692, guid: 4c0019e7debe943fbab120a80db5001e,
+        type: 2}
+      propertyPath: LevelText
+      value: 
+      objectReference: {fileID: 1171851330}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c0019e7debe943fbab120a80db5001e, type: 2}
   m_IsPrefabAsset: 0
@@ -644,6 +653,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224179799021639948, guid: 4c0de7920530549a4a78fc362a6bf11b,
     type: 2}
   m_PrefabInternal: {fileID: 35772322}
+--- !u!114 &1171851330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114831835232076416, guid: 4c0019e7debe943fbab120a80db5001e,
+    type: 2}
+  m_PrefabInternal: {fileID: 367762924}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &1373907482 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224910409839773722, guid: 4c0019e7debe943fbab120a80db5001e,
@@ -798,7 +813,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.123
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
