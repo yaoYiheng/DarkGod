@@ -5,9 +5,11 @@
     日期：2019/1/30 0:44:31
 	功能：UI页面基类
 *****************************************************/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIWindowRoot : MonoBehaviour
@@ -93,7 +95,36 @@ public class UIWindowRoot : MonoBehaviour
         UpdateText(text.GetComponent<Text>(), context.ToString());
     }
 
+    #endregion
 
+    #region 点击事件
+
+    ///判断传入对象上是否 有挂载<T>的组件, 如果没有则添加
+    private T GetOrAddCommponent<T>(GameObject go) where T: Component
+    {
+        T t = go.GetComponent<T>();
+        if(t == null)
+            t = go.AddComponent<T>();
+
+        return t;
+    }
+    protected void OnClickDown(GameObject go, Action<PointerEventData> action)
+    {   //向传入的组件上添加<Listener>
+        var listener = GetOrAddCommponent<Listener>(go);      
+        //向监听的声明添加事件.
+        listener.onClickDown = action;
+    }
+        protected void OnClickUp(GameObject go, Action<PointerEventData> action)
+    {
+        var listener = GetOrAddCommponent<Listener>(go);      
+        listener.onClickUp = action;
+    }
+        protected void OnDrag(GameObject go, Action<PointerEventData> action)
+    {
+        var listener = GetOrAddCommponent<Listener>(go);      
+        listener.onDrag = action;
+    }
+    
 
     #endregion
 }

@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Resources\Scripts\Common\Consts.cs" />
+     <Compile Include="Assets\Resources\Scripts\Common\Listener.cs" />
      <Compile Include="Assets\Resources\Scripts\Common\LoopAnimation.cs" />
      <Compile Include="Assets\Resources\Scripts\Common\SystemRoot.cs" />
      <Compile Include="Assets\Resources\Scripts\Common\Tools.cs" />

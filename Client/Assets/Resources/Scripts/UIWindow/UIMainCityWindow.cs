@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIMainCityWindow : UIWindowRoot
@@ -23,6 +24,11 @@ public class UIMainCityWindow : UIWindowRoot
     public Text NameText;
     public Text ExperienceText;
     public Transform expRect;
+
+    //  摇杆插件
+    public Image TouchArea;
+    public Image TouchBGImage;
+    public Image TouchPointImage;
     #endregion
 
     #region 私有变量
@@ -35,7 +41,20 @@ public class UIMainCityWindow : UIWindowRoot
     {
         base.InitUIwindow();
         UpdateUI();
+        //注册点击事件
+        RegisteTouchEvents();
     }
+    
+    #region 摇杆
+    public void RegisteTouchEvents()
+    {
+        OnClickDown(TouchArea.gameObject, (PointerEventData events) =>{
+            TouchBGImage.transform.position = events.position;
+        });
+    }
+
+
+    #endregion
     private void UpdateUI()
     {
         //根据玩家数据更新UI
@@ -105,4 +124,5 @@ public class UIMainCityWindow : UIWindowRoot
 
     }
     #endregion
+
 }
