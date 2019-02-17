@@ -35,4 +35,15 @@ public class Consts
     public const float ScreenStandWidth = 5120;
     public const float ScreenStandHeight = 2880;
     public const float ScreenStandOPDisctance = 400;
+
+    //移动速度
+    public const int PlayerSpeed = 8;
+    public const int Monster = 4;
+
+    //动画Blend
+    public const int IdleBlend = 0;
+    public const int WalkBlend = 1;
+
+    //运动平滑速度
+    public const int AccelerSpeed = 5; 
 }

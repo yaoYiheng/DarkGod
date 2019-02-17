@@ -74,6 +74,8 @@ public class UIMainCityWindow : UIWindowRoot
             var distance = direction.magnitude;
 
             //限制
+            // pointDistance 为根据当前屏幕I所计算出来的值
+            // 当距离大于该值时, 需要对方向向量的长度进行限制.
             if(distance > pointDistance)
             {
                 var clampDir = Vector2.ClampMagnitude(direction, pointDistance);

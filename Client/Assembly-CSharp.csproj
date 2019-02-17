@@ -61,6 +61,7 @@
      <Compile Include="Assets\Resources\Scripts\Common\UIWindowRoot.cs" />
      <Compile Include="Assets\Resources\Scripts\GameRoot.cs" />
      <Compile Include="Assets\Resources\Scripts\Net\ClientSession.cs" />
+     <Compile Include="Assets\Resources\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Services\AudioService.cs" />
      <Compile Include="Assets\Resources\Scripts\Services\NetService.cs" />
      <Compile Include="Assets\Resources\Scripts\Services\ResourceService.cs" />
