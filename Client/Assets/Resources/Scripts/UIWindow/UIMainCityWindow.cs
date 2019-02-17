@@ -33,6 +33,9 @@ public class UIMainCityWindow : UIWindowRoot
 
     #region 私有变量
     private bool IsExpand = true;
+    private Vector2 defalutBGPos;
+    private Vector2 startPos;
+    private float pointDistance;
     #endregion
 
 
@@ -43,13 +46,45 @@ public class UIMainCityWindow : UIWindowRoot
         UpdateUI();
         //注册点击事件
         RegisteTouchEvents();
+        SetActive(TouchPointImage, false);
+        defalutBGPos = TouchBGImage.transform.position;
+        pointDistance = Screen.height * 1.0f / Consts.ScreenStandHeight * Consts.ScreenStandOPDisctance;
     }
     
     #region 摇杆
     public void RegisteTouchEvents()
     {
         OnClickDown(TouchArea.gameObject, (PointerEventData events) =>{
+            //记录一开始按下的位置
+            startPos = events.position;
             TouchBGImage.transform.position = events.position;
+            SetActive(TouchPointImage);
+        });
+        OnClickUp(TouchArea.gameObject, (PointerEventData events) =>{
+            TouchBGImage.transform.position = defalutBGPos;
+            SetActive(TouchPointImage, false);
+            TouchPointImage.transform.localPosition = Vector2.zero;
+
+            //TODO方向信息传递
+        });
+
+        OnDrag(TouchArea.gameObject, (PointerEventData events) =>{
+            //通过开始点击的位置与当前拖拽的位置计算拖拽的方向, 需要将该方向传递出去
+            var direction = events.position - startPos;
+            var distance = direction.magnitude;
+
+            //限制
+            if(distance > pointDistance)
+            {
+                var clampDir = Vector2.ClampMagnitude(direction, pointDistance);
+                TouchPointImage.transform.position = startPos + clampDir;
+            }
+            else
+            {
+                TouchPointImage.transform.position = events.position;
+            }
+
+            //TODO方向信息传递
         });
     }
 

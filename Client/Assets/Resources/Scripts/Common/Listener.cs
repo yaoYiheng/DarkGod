@@ -19,7 +19,10 @@ public class Listener : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public Action<PointerEventData> onDrag;
     public void OnDrag(PointerEventData eventData)
     {
-
+        if(onDrag != null)
+        {
+            onDrag(eventData);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -32,6 +35,9 @@ public class Listener : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerUp(PointerEventData eventData)
     {
-     
+        if(onClickUp != null)
+        {
+            onClickUp(eventData);
+        }
     }
 }

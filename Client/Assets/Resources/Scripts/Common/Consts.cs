@@ -34,4 +34,5 @@ public class Consts
     //标准屏幕宽高
     public const float ScreenStandWidth = 5120;
     public const float ScreenStandHeight = 2880;
+    public const float ScreenStandOPDisctance = 400;
 }
