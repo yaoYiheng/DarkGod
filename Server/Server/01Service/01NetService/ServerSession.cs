@@ -8,12 +8,19 @@ using PEProtocol;
 
 public class ServerSession : PESession<GameMessage>
 {
+    public int SessionID = 0;
     protected override void OnConnected()
     {
-        Common.Log("Client Connect");
+        SessionID = ServerRoot.Instance.GetSersessionID();
+        Common.Log("客户端Session == " + SessionID);
         //SendMsg(new GameMessage() { text = "欢迎连接服务器" });
     }
-
+    protected override void OnDisConnected()
+    {
+        CacheService.Instance.AccountOffLine(this);
+        Common.Log("客户端失去连接" + this.SessionID);
+        //SendMsg(new GameMessage() { text = "客户端失去连接" });
+    }
     protected override void OnReciveMsg(GameMessage msg)
     {
 
@@ -23,9 +30,5 @@ public class ServerSession : PESession<GameMessage>
 
         //SendMsg(new GameMessage() { text = "服务器: " + msg.text });
     }
-    protected override void OnDisConnected()
-    {
-        Common.Log("客户端失去连接");
-        //SendMsg(new GameMessage() { text = "客户端失去连接" });
-    }
+
 }

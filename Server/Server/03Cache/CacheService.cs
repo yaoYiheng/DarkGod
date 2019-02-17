@@ -93,4 +93,22 @@ public class CacheService
     {
         return DataBaseManager.Instance.UpdatePlayerData(id, data);
     }
+
+    /// <summary>
+    /// 当账号下线时.
+    /// </summary>
+    /// <param name="session">Session.</param>
+    public void AccountOffLine(ServerSession session)
+    {
+        foreach (var item in onlineAccountDict)
+        {
+            if (item.Value == session)
+            {
+                onlineAccountDict.Remove(item.Key);
+                break;
+            }
+        }
+
+        onlineSessionDict.Remove(session);
+    }
 }

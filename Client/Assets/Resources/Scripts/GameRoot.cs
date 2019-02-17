@@ -89,7 +89,7 @@ public class GameRoot : Singleton<GameRoot>
         //初始化
         Init();
         //调试用, 清零UI
-        //ClearUI();
+        ClearUI();
         //只显示Tips
         UIDynamicWindow.SetWindowState();
 

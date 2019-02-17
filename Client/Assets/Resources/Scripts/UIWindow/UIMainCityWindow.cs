@@ -12,7 +12,10 @@ using UnityEngine.UI;
 
 public class UIMainCityWindow : UIWindowRoot
 {
+    public Animation MenuAnimation;
 
+    #region UI控件
+    public Button MenuBtn;
     public Text LevelText;
     public Text FlightText;
     public Text PowerText;
@@ -20,6 +23,14 @@ public class UIMainCityWindow : UIWindowRoot
     public Text NameText;
     public Text ExperienceText;
     public Transform expRect;
+    #endregion
+
+    #region 私有变量
+    private bool IsExpand = true;
+    #endregion
+
+
+    #region 主要方法
     protected override void InitUIwindow()
     {
         base.InitUIwindow();
@@ -68,4 +79,30 @@ public class UIMainCityWindow : UIWindowRoot
         var cellWidth = (UIWidth - 560) / 10;
         grid.cellSize = new Vector2(cellWidth, 60);
     }
+    #endregion
+
+    #region 点击按钮方法
+    public void OnMenuBtnClick()
+    {
+        //播放声效
+        audioService.PlayEffect(Consts.A_MenuButtonClick);
+
+        //更改旗子
+        IsExpand = !IsExpand;
+        // 根据旗子获取到动画Clip
+        AnimationClip clip = null;
+        if (IsExpand)
+        {
+            clip = MenuAnimation.GetClip("MenuOpen");
+        }
+        else
+        {
+            clip = MenuAnimation.GetClip("MenuClose");
+        }
+        // 根据不同的cli播放不同的动画效果
+        MenuAnimation.Play(clip.name);
+
+
+    }
+    #endregion
 }

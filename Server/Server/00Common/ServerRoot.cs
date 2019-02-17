@@ -36,4 +36,14 @@ public class ServerRoot
     {
         NetSerive.Instance.Update();
     }
+
+    private int sessionID = 0;
+    public int GetSersessionID()
+    {
+        if (sessionID == int.MaxValue)
+        {
+            sessionID = 0;
+        }
+        return sessionID += 1;
+    }
 }
