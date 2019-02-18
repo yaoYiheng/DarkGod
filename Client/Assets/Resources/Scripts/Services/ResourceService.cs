@@ -21,8 +21,7 @@ public class ResourceService : Singleton<ResourceService>
     List<string> m_MaleName = new List<string>();
     List<string> m_FemaleName = new List<string>();
 
-    //地图配置文件
-    Dictionary<int, MapConfigures> m_MapDict = new Dictionary<int, MapConfigures>();
+   
     public override void Init()
     {
         LoadFromFile(Consts.RdNamePath);
@@ -97,6 +96,18 @@ public class ResourceService : Singleton<ResourceService>
         return clip;
     }
 
+    #region 地图配置
+
+ //地图配置文件
+    Dictionary<int, MapConfigures> m_MapDict = new Dictionary<int, MapConfigures>();
+    //获取地图配置文件
+    public MapConfigures GetConfigures(int id)
+    {
+        MapConfigures data = null;
+        if(m_MapDict.TryGetValue(id, out data)) return data;
+        
+        return null;
+    }
     //从文件中加载地图配置文件到内存
     void LoadMapConfigure(string path)
     {
@@ -167,7 +178,8 @@ public class ResourceService : Singleton<ResourceService>
         }
 
 
-    }
+    }    
+    #endregion
     void LoadFromFile(string path)
     {
         TextAsset asset = Resources.Load<TextAsset>(path);
