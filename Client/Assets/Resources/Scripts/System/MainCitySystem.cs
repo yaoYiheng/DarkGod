@@ -14,6 +14,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
 {
     public UIMainCityWindow MainCityWindow;
 
+    private PlayerController playerController;
     public override void Init()
     {
         //需要调用父类的初始化方法完成一些写在父类中的逻辑
@@ -26,7 +27,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
     public void EnterMainCity()
     {
 
-        MainCityWindow.SetWindowState();
+        MainCityWindow.SetWindowState(false);
         //获取地图配置文件
         var mapConfigure = resourceService.GetConfigures(Consts.S_MainCitySceneID);
 
@@ -41,17 +42,38 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
             //播放主城的背景音乐
             audioService.PlayBGMusic(Consts.A_BGMCity, true);
             //角色的初始化导入
+            LoadPrefab(mapConfigure);
+         
+        });
+    }
+
+    void LoadPrefab(MapConfigures map)
+    {
             GameObject player = resourceService.GetPlayer(Consts.PlayerInCity, true);
-            player.transform.position = mapConfigure.playerBornPos;
-            player.transform.eulerAngles = mapConfigure.playerBornRot;
+            player.transform.position = map.playerBornPos;
+            player.transform.eulerAngles = map.playerBornRot;
             player.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
-            PlayerController playerController = player.GetComponent<PlayerController>();
+
+            playerController = player.GetComponent<PlayerController>();
+            playerController.InitCharator();
 
 
             //TODO设置人物相机
-            Camera.main.transform.transform.position = mapConfigure.mainCamPos;
-            Camera.main.transform.transform.localEulerAngles = mapConfigure.mainCamRot;
+            Camera.main.transform.transform.position = map.mainCamPos;
+            // Camera.main.transform.transform.localEulerAngles = map.mainCamRot;
             
-        });
+    }
+
+    public void MoveCharator(Vector2 direction)
+    {
+        if (direction == Vector2.zero)
+        {
+            playerController.SetBlend(Consts.IdleBlend);
+        }
+        else
+        {
+            playerController.SetBlend(Consts.WalkBlend);
+        }
+        playerController.Direction = direction;
     }
 }

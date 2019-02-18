@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Start()
+    public void InitCharator()
     {
         cam = Camera.main;
         CamOffset = transform.position - cam.transform.position;
@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        /* 
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
 
@@ -68,6 +69,8 @@ public class PlayerController : MonoBehaviour
             //停止行走时
             SetBlend(Consts.IdleBlend);
         }
+        */
+
 
         if (currentBlend != targetBlend)
         {
@@ -85,6 +88,8 @@ public class PlayerController : MonoBehaviour
     {   
         //会给出两个向量之间的夹角[-180, 180]
         var angle = Vector2.SignedAngle(Direction, new Vector2(0, 1));
+        //
+        // var angle = Vector2.SignedAngle(Direction, new Vector2(0, 1)) + cam.transform.eulerAngles.y;
         var eularAngle = new Vector3(0, angle, 0);
         transform.localEulerAngles = eularAngle;
 
@@ -97,7 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         cam.transform.position = transform.position - CamOffset;
     }
-    private void SetBlend(float blend)
+    public void SetBlend(float blend)
     {
         targetBlend = blend;
     }

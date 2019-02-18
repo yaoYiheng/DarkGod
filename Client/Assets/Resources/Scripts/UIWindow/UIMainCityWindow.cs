@@ -66,6 +66,7 @@ public class UIMainCityWindow : UIWindowRoot
             TouchPointImage.transform.localPosition = Vector2.zero;
 
             //TODO方向信息传递
+            MainCitySystem.Instance.MoveCharator(Vector2.zero);
         });
 
         OnDrag(TouchArea.gameObject, (PointerEventData events) =>{
@@ -87,6 +88,7 @@ public class UIMainCityWindow : UIWindowRoot
             }
 
             //TODO方向信息传递
+            MainCitySystem.Instance.MoveCharator(direction.normalized);
         });
     }
 
