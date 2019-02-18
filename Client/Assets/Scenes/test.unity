@@ -113,46 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &401485173 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 199576, guid: ba26e03b723d2b54391d01cbbe3dcbc1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2044000040}
---- !u!114 &401485174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 401485173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f3bcdbb186e94f33823050a2c4cbebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 401485175}
-  character: {fileID: 401485176}
---- !u!95 &401485175 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9599464, guid: ba26e03b723d2b54391d01cbbe3dcbc1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2044000040}
---- !u!143 &401485176
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 401485173}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.8
-  m_Radius: 0.4
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &542702111
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,30 +381,6 @@ Prefab:
     - target: {fileID: 499576, guid: ba26e03b723d2b54391d01cbbe3dcbc1, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9599464, guid: ba26e03b723d2b54391d01cbbe3dcbc1, type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4b964c4917037471c8b0e82e25f9d6ea, type: 2}
-    - target: {fileID: 1901019358016306, guid: ba26e03b723d2b54391d01cbbe3dcbc1, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 199562, guid: ba26e03b723d2b54391d01cbbe3dcbc1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199492, guid: ba26e03b723d2b54391d01cbbe3dcbc1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199556, guid: ba26e03b723d2b54391d01cbbe3dcbc1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199538, guid: ba26e03b723d2b54391d01cbbe3dcbc1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba26e03b723d2b54391d01cbbe3dcbc1, type: 2}

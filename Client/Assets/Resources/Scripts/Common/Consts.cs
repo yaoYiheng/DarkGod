@@ -17,9 +17,11 @@ public class Consts
     public static string AudioPath = Application.streamingAssetsPath + @"/ResAudio/";
     public static string RdNamePath = "ResCfgs/rdname";
     public static string MapCfgPath = "ResCfgs/map";
+    public static string PrefabPath = "PrefabPlayer/";
     //场景
     public const string S_LoadingScene = "01LoginScene";
     public const string S_MainCityScene = "02SceneMainCity";
+    public const int S_MainCitySceneID = 10000;
 
 
     //音频title
@@ -48,4 +50,7 @@ public class Consts
 
     //运动平滑速度
     public const int AccelerSpeed = 5; 
+    //角色预制
+    public const string PlayerInCity = "AssassinCity";
+    public const string PlayerPreb = "Assassin";
 }

@@ -105,7 +105,7 @@ public class ResourceService : Singleton<ResourceService>
     {
         MapConfigures data = null;
         if(m_MapDict.TryGetValue(id, out data)) return data;
-        
+
         return null;
     }
     //从文件中加载地图配置文件到内存
@@ -234,6 +234,24 @@ public class ResourceService : Singleton<ResourceService>
         return rdName;
     }
 
+    Dictionary<string, GameObject> m_Player = new Dictionary<string, GameObject>();
+    public GameObject GetPlayer(string name, bool isCache)
+    {
+        GameObject go = null;
+        if(m_Player.TryGetValue(name, out go)) return go;
+        
+        if (go == null)
+        {
+            go = Resources.Load<GameObject>(Consts.PrefabPath + name);
+            go = Instantiate(go);
+            if (isCache)
+            {
+                m_Player.Add(name, go);
+            }
+        }
+        return go;
+
+    }
     #region 系统回调
     private void Update()
     {
