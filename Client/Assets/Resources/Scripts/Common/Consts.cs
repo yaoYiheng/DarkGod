@@ -15,6 +15,8 @@ public class Consts
 
     //资源路径
     public static string AudioPath = Application.streamingAssetsPath + @"/ResAudio/";
+    public static string RdNamePath = "ResCfgs/rdname";
+    public static string MapCfgPath = "ResCfgs/map";
     //场景
     public const string S_LoadingScene = "01LoginScene";
     public const string S_MainCityScene = "02SceneMainCity";

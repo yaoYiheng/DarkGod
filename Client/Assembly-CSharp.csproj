@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resources\Scripts\Common\BaseData.cs" />
      <Compile Include="Assets\Resources\Scripts\Common\Consts.cs" />
      <Compile Include="Assets\Resources\Scripts\Common\Listener.cs" />
      <Compile Include="Assets\Resources\Scripts\Common\LoopAnimation.cs" />
@@ -78,6 +79,7 @@
      <None Include="Assets\Compond\Shader\MonsterShader.shader" />
      <None Include="Assets\Compond\MakeChar\Shader\MogoFakeLight.shader" />
      <None Include="Assets\Compond\Shader\MogoSkybox.shader" />
+     <None Include="Assets\Resources\ResCfgs\map.xml" />
      <None Include="Assets\Compond\MakeScene\SceneShader\MogoTransparentDiffuse.shader" />
      <None Include="Assets\Compond\Shader\Mul-skybox.shader" />
  <Reference Include="UnityEditor.StandardEvents">

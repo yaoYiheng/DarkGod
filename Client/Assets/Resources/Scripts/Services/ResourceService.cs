@@ -20,10 +20,14 @@ public class ResourceService : Singleton<ResourceService>
     List<string> m_Surname = new List<string>();
     List<string> m_MaleName = new List<string>();
     List<string> m_FemaleName = new List<string>();
+
+    //地图配置文件
+    Dictionary<int, MapConfigures> m_MapDict = new Dictionary<int, MapConfigures>();
     public override void Init()
     {
+        LoadFromFile(Consts.RdNamePath);
+        LoadMapConfigure(Consts.MapCfgPath);
         Debug.Log("初始化资源服务");
-        LoadFromFile();
     }
 
     //异步加载场景
@@ -93,10 +97,80 @@ public class ResourceService : Singleton<ResourceService>
         return clip;
     }
 
-    //从文件中加载到内存
-    void LoadFromFile()
+    //从文件中加载地图配置文件到内存
+    void LoadMapConfigure(string path)
     {
-        TextAsset asset = Resources.Load<TextAsset>("ResCfgs/rdname");
+        TextAsset asset = Resources.Load<TextAsset>(path);
+        //加载XML文件
+
+        if (asset == null)
+        {
+            Debug.Log("文件为空");
+        }
+        else//添加到字典中
+        {
+            XmlDocument document = new XmlDocument();
+            document.LoadXml(asset.text);
+
+            XmlNodeList xmlNodeList = document.SelectSingleNode("root").ChildNodes;
+            for (int i = 0; i < xmlNodeList.Count; i++)
+            {
+                XmlElement element = xmlNodeList[i] as XmlElement;
+                if (element.GetAttributeNode("ID") == null) continue;
+
+                var id = int.Parse(element.GetAttributeNode("ID").InnerText);
+                MapConfigures mapCfg = new MapConfigures()
+                {
+                    ID = id
+                };
+                foreach (XmlElement item in xmlNodeList[i].ChildNodes)
+                {
+                    switch (item.Name)
+                    {
+                        case "mapName":
+                            mapCfg.mapName = item.InnerText;
+                            break;
+                        case "sceneName":
+                            mapCfg.sceneName = item.InnerText;
+                            break;
+                        case "mainCamPos":
+                        {
+                            var nums = item.InnerText.Split(',');
+                            mapCfg.mainCamPos = new Vector3(float.Parse(nums[0]),float.Parse(nums[1]),float.Parse(nums[2]));
+                            break;
+                        }
+                        case "mainCamRote":
+                        {
+                            var nums = item.InnerText.Split(',');
+                            mapCfg.mainCamRot = new Vector3(float.Parse(nums[0]),float.Parse(nums[1]),float.Parse(nums[2]));
+                            break;
+                        }
+                        case "playerBornPos":
+                        {
+                            var nums = item.InnerText.Split(',');
+                            mapCfg.playerBornPos = new Vector3(float.Parse(nums[0]),float.Parse(nums[1]),float.Parse(nums[2]));
+                            break;
+                        }
+                        case "playerBornRote":
+                        {
+                            var nums = item.InnerText.Split(',');
+                            mapCfg.playerBornRot = new Vector3(float.Parse(nums[0]),float.Parse(nums[1]),float.Parse(nums[2]));
+                            break;
+                        }
+                        default:
+                            break;
+                    }
+                }
+
+                m_MapDict.Add(id, mapCfg);
+            }
+        }
+
+
+    }
+    void LoadFromFile(string path)
+    {
+        TextAsset asset = Resources.Load<TextAsset>(path);
         //加载XML文件
 
         if (asset == null)
