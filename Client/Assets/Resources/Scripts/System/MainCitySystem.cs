@@ -60,7 +60,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
 
             //TODO设置人物相机
             Camera.main.transform.transform.position = map.mainCamPos;
-            // Camera.main.transform.transform.localEulerAngles = map.mainCamRot;
+            Camera.main.transform.transform.localEulerAngles = map.mainCamRot;
             
     }
 

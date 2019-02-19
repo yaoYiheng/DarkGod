@@ -87,9 +87,9 @@ public class PlayerController : MonoBehaviour
     void UpdateDirection()
     {   
         //会给出两个向量之间的夹角[-180, 180]
-        var angle = Vector2.SignedAngle(Direction, new Vector2(0, 1));
+        // var angle = Vector2.SignedAngle(Direction, new Vector2(0, 1));
         //
-        // var angle = Vector2.SignedAngle(Direction, new Vector2(0, 1)) + cam.transform.eulerAngles.y;
+        var angle = Vector2.SignedAngle(Direction, new Vector2(0, 1)) + cam.transform.eulerAngles.y;
         var eularAngle = new Vector3(0, angle, 0);
         transform.localEulerAngles = eularAngle;
 

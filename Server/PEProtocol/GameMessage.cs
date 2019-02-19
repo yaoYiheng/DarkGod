@@ -88,7 +88,7 @@ namespace PEProtocol
     }
     public class ServiceConfigure
     {
-        public const string srvIP = "127.0.0.1";
+        public const string srvIP = "192.168.1.2";
         public const int serPot = 17666;
 
     }
