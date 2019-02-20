@@ -2,10 +2,9 @@
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/bin/Debug/PEProtocol.pdb
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/bin/Debug/PESocket.dll
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/bin/Debug/PESocket.pdb
-/Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/obj/Debug/PEProtocol.csprojAssemblyReference.cache
+/Users/yiheng/Documents/Unity相关/DarkGod/Client/Assets/Resources/Scripts/Net/PEProtocol.dll
+/Users/yiheng/Documents/Unity相关/DarkGod/Client/Assets/Resources/Scripts/Net/PEProtocol.pdb
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/obj/Debug/PEProtocol.csproj.CoreCompileInputs.cache
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/obj/Debug/PEProtocol.csproj.CopyComplete
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/obj/Debug/PEProtocol.dll
 /Users/yiheng/Documents/Unity相关/DarkGod/Server/PEProtocol/obj/Debug/PEProtocol.pdb
-/Users/yiheng/Documents/Unity相关/DarkGod/Client/Assets/Resources/Scripts/Net/PEProtocol.dll
-/Users/yiheng/Documents/Unity相关/DarkGod/Client/Assets/Resources/Scripts/Net/PEProtocol.pdb

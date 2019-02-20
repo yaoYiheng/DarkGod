@@ -30,6 +30,8 @@ public class UIMainCityWindow : UIWindowRoot
     public Image TouchArea;
     public Image TouchBGImage;
     public Image TouchPointImage;
+
+    public Button AutoTaskButton;
     #endregion
 
     #region 私有变量
@@ -107,6 +109,7 @@ public class UIMainCityWindow : UIWindowRoot
         PowerImage.fillAmount = data.power * 1.0f / Common.GetPowerLimit(data.level);
         UpdateText(NameText, data.name);
 
+        #region 经验条
         //获取升级所需要的经验
         var levelUpExp = Common.GetLevelUpExp(data.level);
         var cuurentPrecentage = (int)(data.experience * 1.0f / levelUpExp * 100);
@@ -138,6 +141,39 @@ public class UIMainCityWindow : UIWindowRoot
         //计算Cell宽度
         var cellWidth = (UIWidth - 560) / 10;
         grid.cellSize = new Vector2(cellWidth, 60);
+        #endregion
+
+        //设置自动任务的图片
+        SetGuideButtonIcon(-1);
+
+    }
+    private void SetGuideButtonIcon(int npcID)
+    {
+        // 图片路径
+        string path = "";
+        var icon = AutoTaskButton.GetComponent<Image>();
+        switch (npcID)
+        {
+            case Consts.NPCWiseman:
+            path = Consts.NPC_Wiseman;
+            break;
+            case Consts.NPCGeneral:
+            path = Consts.NPC_General;
+            break;
+            case Consts.NPCArtisan:
+            path = Consts.NPC_Artisan;
+            break;
+            case Consts.NPCTrader:
+            path = Consts.NPC_Trader;
+            break;            
+            default:
+            path = Consts.NPC_Default;
+            break;
+        }
+
+        
+    
+    
     }
     #endregion
 

@@ -13,13 +13,25 @@ using UnityEngine;
 public class Consts 
 {
 
-    #region 路径
-    //资源路径
+    #region NPC
+
+    public const int NPCWiseman= 0;
+    public const int NPCGeneral = 1;
+    public const int NPCArtisan = 2;
+    public const int NPCTrader = 3;
+    #endregion
+
+    #region 资源路径
+    public const string NPC_Default = "ResImages/task";
+    public const string NPC_Wiseman= "ResImages/wiseman";
+    public const string NPC_General = "ResImages/general";
+    public const string NPC_Artisan = "ResImages/artisan";
+    public const string NPC_Trader = "ResImages/trader";
     public static string AudioPath = Application.streamingAssetsPath + @"/ResAudio/";
-    public static string RdNamePath = "ResCfgs/rdname";
-    public static string MapCfgPath = "ResCfgs/map";
-    public static string GuideCfgPath = "ResCfgs/guide";
-    public static string PrefabPath = "PrefabPlayer/";
+    public const string RdNamePath = "ResCfgs/rdname";
+    public const string MapCfgPath = "ResCfgs/map";
+    public const string GuideCfgPath = "ResCfgs/guide";
+    public const string PrefabPath = "PrefabPlayer/";
     #endregion
     //场景
     public const string S_LoadingScene = "01LoginScene";

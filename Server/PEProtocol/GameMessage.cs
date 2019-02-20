@@ -53,6 +53,7 @@ namespace PEProtocol
         public int pierce;//穿透比率
         public int critical;//暴击概率
         //待续
+        public int guideid;
     }
     [Serializable]
     public class RenameRequest

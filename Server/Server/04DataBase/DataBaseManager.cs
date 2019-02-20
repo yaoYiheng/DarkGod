@@ -79,8 +79,9 @@ public class DataBaseManager
                         apdef = reader.GetInt32("apdef"),
                         dodge = reader.GetInt32("dodge"),
                         pierce = reader.GetInt32("pierce"),
-                        critical = reader.GetInt32("critical")
+                        critical = reader.GetInt32("critical"),
                         //待添加
+                        guideid = reader.GetInt32("guideid")
                     };
                 }
             }
@@ -117,6 +118,8 @@ public class DataBaseManager
                     dodge = 7,
                     pierce = 5,
                     critical = 2,
+                    //待续
+                    guideid = 1001,
                 };
                 //将插入到数据库后的id返回给默认创建的玩家数据的id
                 data.id = InsertPlayerData(account, password, data);
@@ -139,7 +142,8 @@ public class DataBaseManager
         {
             MySqlCommand command = new MySqlCommand(
             "insert into darkgod set account = @account, password = @password, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond, " +
-            "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical", connection);
+            "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical" +
+            "guideid=@guideid", connection);
             command.Parameters.AddWithValue("account", account);
             command.Parameters.AddWithValue("password", password);
             command.Parameters.AddWithValue("name", data.name);
@@ -157,6 +161,8 @@ public class DataBaseManager
             command.Parameters.AddWithValue("dodge", data.dodge);
             command.Parameters.AddWithValue("pierce", data.pierce);
             command.Parameters.AddWithValue("critical", data.critical);
+
+            command.Parameters.AddWithValue("guideid", data.guideid);
 
             command.ExecuteNonQuery();
             //返回插入的最后一条数据的id
@@ -214,7 +220,8 @@ public class DataBaseManager
         {
             MySqlCommand command = new MySqlCommand(
             "update darkgod set name = @name, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond," +
-             "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical where id = @id", connection);
+             "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical," +
+             "guideid=@guideid where id = @id", connection);
 
             command.Parameters.AddWithValue("name", data.name);
             command.Parameters.AddWithValue("level", data.level);
@@ -233,6 +240,7 @@ public class DataBaseManager
             command.Parameters.AddWithValue("dodge", data.dodge);
             command.Parameters.AddWithValue("pierce", data.pierce);
             command.Parameters.AddWithValue("critical", data.critical);
+            command.Parameters.AddWithValue("guideid", data.guideid);
             command.ExecuteNonQuery();
         }
         catch (Exception ex)
