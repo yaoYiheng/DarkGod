@@ -19,7 +19,7 @@ public class MapConfigures: BaseData<MapConfigures>
     public Vector3 playerBornRot;
 }
 
-public class BaseData<T> : MonoBehaviour 
+public class BaseData<T>
 {
     public int ID;
 }

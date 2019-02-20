@@ -71,9 +71,11 @@
      <Compile Include="Assets\Resources\Scripts\System\MainCitySystem.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UICreatWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UIDynamicWindow.cs" />
+     <Compile Include="Assets\Resources\Scripts\UIWindow\UIInfoWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UILoadingWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UILoginWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UIMainCityWindow.cs" />
+     <Compile Include="Assets\Test.cs" />
      <None Include="Assets\Compond\MakeChar\Shader\PlayerShader.shader" />
      <None Include="Assets\Resources\ResCfgs\rdname.xml" />
      <None Include="Assets\Compond\Shader\MonsterShader.shader" />

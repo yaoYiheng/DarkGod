@@ -30,6 +30,7 @@ public class Consts
     public const string A_Login = "uiLoginBtn";
     public const string A_ButtonClick = "uiClickBtn";
     public const string A_MenuButtonClick = "uiExtenBtn";
+    public const string A_UIOpenPage =  "uiOpenPage";
 
     //存档key
     public const string SavingAccount = "Account";

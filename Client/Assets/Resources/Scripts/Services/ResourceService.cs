@@ -130,10 +130,8 @@ public class ResourceService : Singleton<ResourceService>
                 if (element.GetAttributeNode("ID") == null) continue;
 
                 var id = int.Parse(element.GetAttributeNode("ID").InnerText);
-                MapConfigures mapCfg = new MapConfigures()
-                {
-                    ID = id
-                };
+                MapConfigures mapCfg = new MapConfigures();
+                mapCfg.ID = id;
                 foreach (XmlElement item in xmlNodeList[i].ChildNodes)
                 {
                     switch (item.Name)

@@ -15,6 +15,7 @@ public class UIMainCityWindow : UIWindowRoot
 {
     public Animation MenuAnimation;
 
+
     #region UI控件
     public Button MenuBtn;
     public Text LevelText;
@@ -36,6 +37,7 @@ public class UIMainCityWindow : UIWindowRoot
     private Vector2 defalutBGPos;
     private Vector2 startPos;
     private float pointDistance;
+    
     #endregion
 
 
@@ -161,6 +163,11 @@ public class UIMainCityWindow : UIWindowRoot
         MenuAnimation.Play(clip.name);
 
 
+    }
+
+    public void OnHeadClick()
+    {
+        MainCitySystem.Instance.ShowInfoWindow();
     }
     #endregion
 

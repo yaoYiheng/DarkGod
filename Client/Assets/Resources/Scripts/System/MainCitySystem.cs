@@ -13,8 +13,9 @@ using UnityEngine;
 public class MainCitySystem : SystemRoot<MainCitySystem> 
 {
     public UIMainCityWindow MainCityWindow;
-
+    public UIInfoWindow UIInfoWindow;
     private PlayerController playerController;
+    private Transform CharShowcam;
     public override void Init()
     {
         //需要调用父类的初始化方法完成一些写在父类中的逻辑
@@ -43,6 +44,9 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
             audioService.PlayBGMusic(Consts.A_BGMCity, true);
             //角色的初始化导入
             LoadPrefab(mapConfigure);
+
+            //TODO设置人物相机
+            if(CharShowcam != null) CharShowcam.gameObject.SetActive(false);
          
         });
     }
@@ -58,7 +62,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
             playerController.InitCharator();
 
 
-            //TODO设置人物相机
+
             Camera.main.transform.transform.position = map.mainCamPos;
             Camera.main.transform.transform.localEulerAngles = map.mainCamRot;
             
@@ -76,4 +80,42 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
         }
         playerController.Direction = direction;
     }
+
+    public void ShowInfoWindow()
+    {
+        if (CharShowcam == null)
+        {
+            CharShowcam = GameObject.FindGameObjectWithTag("CharCam").transform;
+            
+        }
+        //相对于角色的位置
+        CharShowcam.localPosition = playerController.transform.position + 3.0f * playerController.transform.forward + new Vector3(0, 1.2f,0);
+        CharShowcam.localEulerAngles = new Vector3(0, 180 + playerController.transform.eulerAngles.y, 0);
+        CharShowcam.localScale = Vector3.one;
+        CharShowcam.gameObject.SetActive(true);
+        UIInfoWindow.ShowInfoWindow();
+        audioService.PlayEffect(Consts.A_UIOpenPage);
+    }
+
+    public void HideInfowWindow()
+    {
+        CharShowcam.gameObject.SetActive(false);
+    }
+
+    #region 拖拽旋转角色
+    private float startRotate = 0;
+    public void SetStartRotate()
+    {
+        startRotate = playerController.transform.localEulerAngles.y;
+    }
+    public void RotatePlayer(float offset)
+    {
+        // var eulerAngles = 
+        playerController.transform.localEulerAngles = new Vector3(0, startRotate + offset, 0);
+    }
+    public void RotateCamera(float offset)
+    {
+        CharShowcam.RotateAround(playerController.transform.position, Vector3.up, offset *Time.deltaTime);
+    }
+    #endregion
 }
