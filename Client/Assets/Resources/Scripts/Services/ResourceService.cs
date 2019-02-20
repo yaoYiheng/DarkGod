@@ -22,13 +22,80 @@ public class ResourceService : Singleton<ResourceService>
     List<string> m_FemaleName = new List<string>();
 
    
+
+
     public override void Init()
     {
         LoadFromFile(Consts.RdNamePath);
         LoadMapConfigure(Consts.MapCfgPath);
+        LoadAutoGuideConfigure(Consts.GuideCfgPath);
         Debug.Log("初始化资源服务");
     }
 
+
+    #region 获取自动任务配置
+    public AutoGuideConfigures GetGuideConfigures(int guideID)
+    {
+        AutoGuideConfigures guideConfigures = null;
+        if (m_GuideDict.TryGetValue(guideID, out guideConfigures))
+        {
+            return guideConfigures;
+        }
+        return null;
+    }
+    private Dictionary<int, AutoGuideConfigures> m_GuideDict = new Dictionary<int, AutoGuideConfigures>();
+    private void LoadAutoGuideConfigure(string path)
+    {
+        var asset = Resources.Load<TextAsset>(path);
+        if (asset == null)
+        {
+            Debug.Log("配置文件无法加载");
+        }
+        else
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(asset.text);
+            XmlNodeList list = xml.SelectSingleNode("root").ChildNodes;
+            for (int i = 0; i < list.Count; i++)
+            {
+                var element = list[i] as XmlElement;
+                if (element.GetAttributeNode("ID") == null) continue ;
+                
+                var autoGuide = new AutoGuideConfigures()
+                {
+                    ID = int.Parse(element.GetAttributeNode("ID").InnerText)
+                };
+                foreach (XmlElement item in list[i].ChildNodes)
+                {
+                    switch (item.Name)
+                    {
+                        case "npcID":
+                        autoGuide.npcID = int.Parse(item.InnerText);
+                        break;
+                         case "dilogArr":
+                        autoGuide.dilogArr = item.InnerText;
+                        break;
+                        case "actID":
+                        autoGuide.actID = int.Parse(item.InnerText);
+                        break;
+                        case "coin":
+                        autoGuide.coin = int.Parse(item.InnerText);
+                        break;
+                        case "exp":
+                        autoGuide.exp = int.Parse(item.InnerText);
+                        break;                       
+                        default:
+                        break;
+                    }
+                }
+
+                m_GuideDict.Add(autoGuide.ID, autoGuide);
+            }
+        }
+    }
+    #endregion
+
+    
     //异步加载场景
     //加载的是LoadiScene.
     public void AsyncLoadScene(string name, Action OnLoaded)
@@ -232,6 +299,7 @@ public class ResourceService : Singleton<ResourceService>
         return rdName;
     }
 
+    #region 返回角色prefab
     Dictionary<string, GameObject> m_Player = new Dictionary<string, GameObject>();
     public GameObject GetPlayer(string name, bool isCache)
     {
@@ -250,6 +318,8 @@ public class ResourceService : Singleton<ResourceService>
         return go;
 
     }
+    #endregion
+    
     #region 系统回调
     private void Update()
     {

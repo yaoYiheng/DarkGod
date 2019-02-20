@@ -13,18 +13,21 @@ using UnityEngine;
 public class Consts 
 {
 
+    #region 路径
     //资源路径
     public static string AudioPath = Application.streamingAssetsPath + @"/ResAudio/";
     public static string RdNamePath = "ResCfgs/rdname";
     public static string MapCfgPath = "ResCfgs/map";
+    public static string GuideCfgPath = "ResCfgs/guide";
     public static string PrefabPath = "PrefabPlayer/";
+    #endregion
     //场景
     public const string S_LoadingScene = "01LoginScene";
     public const string S_MainCityScene = "02SceneMainCity";
     public const int S_MainCitySceneID = 10000;
 
 
-    //音频title
+    #region 音频title
     public const string A_BGMClip = "bgLogin";
     public const string A_BGMCity = "bgMainCity";
     public const string A_Login = "uiLoginBtn";
@@ -32,6 +35,7 @@ public class Consts
     public const string A_MenuButtonClick = "uiExtenBtn";
     public const string A_UIOpenPage =  "uiOpenPage";
 
+    #endregion
     //存档key
     public const string SavingAccount = "Account";
     public const string SavingPassword = "Password";
@@ -41,6 +45,8 @@ public class Consts
     public const float ScreenStandHeight = 2880;
     public const float ScreenStandOPDisctance = 400;
 
+
+    #region 角色配置
     //移动速度
     public const int PlayerSpeed = 8;
     public const int Monster = 4;
@@ -54,4 +60,5 @@ public class Consts
     //角色预制
     public const string PlayerInCity = "AssassinCity";
     public const string PlayerPreb = "Assassin";
+    #endregion
 }

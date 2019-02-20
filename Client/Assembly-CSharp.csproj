@@ -77,6 +77,7 @@
      <Compile Include="Assets\Resources\Scripts\UIWindow\UIMainCityWindow.cs" />
      <Compile Include="Assets\Test.cs" />
      <None Include="Assets\Compond\MakeChar\Shader\PlayerShader.shader" />
+     <None Include="Assets\Resources\ResCfgs\guide.xml" />
      <None Include="Assets\Resources\ResCfgs\rdname.xml" />
      <None Include="Assets\Compond\Shader\MonsterShader.shader" />
      <None Include="Assets\Compond\MakeChar\Shader\MogoFakeLight.shader" />

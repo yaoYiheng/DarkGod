@@ -9,6 +9,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class AutoGuideConfigures: BaseData<AutoGuideConfigures>
+{
+    public int npcID;
+    public string dilogArr;
+    public int actID;
+    public int coin;
+    public int exp;
+}
 public class MapConfigures: BaseData<MapConfigures>
 {
     public string mapName;
