@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{0EAA5E63-86D9-4FFF-9469-36A111B68809}|Default">
   <MonoDevelop.Ide.ItemProperties.Server PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Server/01Service/01NetService/NetSerive.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Server/04DataBase/DataBaseManager.cs">
     <Files>
       <File FileName="Server/01Service/01NetService/ServerSession.cs" Line="23" Column="6" />
       <File FileName="Server/00Common/ServerRoot.cs" Line="45" Column="27" />
       <File FileName="Server/03Cache/CacheService.cs" Line="12" Column="32" />
-      <File FileName="Server/01Service/01NetService/NetSerive.cs" Line="34" Column="31" />
+      <File FileName="Server/01Service/01NetService/NetSerive.cs" Line="20" Column="1" />
       <File FileName="PEProtocol/Common.cs" Line="24" Column="49" />
-      <File FileName="PEProtocol/GameMessage.cs" Line="37" Column="18" />
-      <File FileName="Server/04DataBase/DataBaseManager.cs" Line="48" Column="24" />
+      <File FileName="PEProtocol/GameMessage.cs" Line="56" Column="28" />
+      <File FileName="Server/04DataBase/DataBaseManager.cs" Line="64" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

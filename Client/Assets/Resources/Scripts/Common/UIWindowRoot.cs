@@ -55,6 +55,10 @@ public class UIWindowRoot : MonoBehaviour
     //对零碎的代码进行整合
 
     #region 工具方法
+    protected void SetSprite(Image image, string path)
+    {
+        image.sprite = resourceService.GetSprite(path, true);
+    }
 
     //设置物体的激活与否
     protected void SetActive(GameObject go, bool isActive = true)

@@ -142,7 +142,7 @@ public class DataBaseManager
         {
             MySqlCommand command = new MySqlCommand(
             "insert into darkgod set account = @account, password = @password, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond, " +
-            "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical" +
+            "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical," +
             "guideid=@guideid", connection);
             command.Parameters.AddWithValue("account", account);
             command.Parameters.AddWithValue("password", password);

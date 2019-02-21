@@ -39,6 +39,7 @@ public class UIMainCityWindow : UIWindowRoot
     private Vector2 defalutBGPos;
     private Vector2 startPos;
     private float pointDistance;
+    private AutoGuideConfigures guideConfigures;
     
     #endregion
 
@@ -144,7 +145,18 @@ public class UIMainCityWindow : UIWindowRoot
         #endregion
 
         //设置自动任务的图片
-        SetGuideButtonIcon(-1);
+        //玩家初始化的时候, 会默认创建guideid为1001
+        guideConfigures = resourceService.GetGuideConfigures(data.guideid);
+        if (guideConfigures != null)
+        {
+            //  根据npc的ID设置图片
+            SetGuideButtonIcon(guideConfigures.npcID);
+        }
+        else
+        {
+            SetGuideButtonIcon(-1);
+        }
+        
 
     }
     private void SetGuideButtonIcon(int npcID)
@@ -170,14 +182,15 @@ public class UIMainCityWindow : UIWindowRoot
             path = Consts.NPC_Default;
             break;
         }
-
-        
-    
-    
+        SetSprite(icon, path);
     }
     #endregion
 
     #region 点击按钮方法
+    public void OnAutoTaskClick()
+    {
+        MainCitySystem.Instance.RunTask(guideConfigures);
+    }
     public void OnMenuBtnClick()
     {
         //播放声效

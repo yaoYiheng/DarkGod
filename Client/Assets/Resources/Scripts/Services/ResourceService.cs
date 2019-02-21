@@ -32,6 +32,22 @@ public class ResourceService : Singleton<ResourceService>
         Debug.Log("初始化资源服务");
     }
 
+    #region 加载Sprite
+    private Dictionary<string, Sprite> m_SpriteDict = new Dictionary<string, Sprite>();
+    public Sprite GetSprite(string path, bool isCache = false)
+    {
+        Sprite sprite = null;
+        if (!m_SpriteDict.TryGetValue(path, out sprite))
+        {
+            sprite = Resources.Load<Sprite>(path);
+            if (isCache)
+            {
+                m_SpriteDict.Add(path, sprite);
+            }
+        }
+        return sprite;
+    }
+    #endregion
 
     #region 获取自动任务配置
     public AutoGuideConfigures GetGuideConfigures(int guideID)

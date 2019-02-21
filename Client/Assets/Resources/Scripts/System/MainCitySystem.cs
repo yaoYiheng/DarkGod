@@ -16,6 +16,8 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
     public UIInfoWindow UIInfoWindow;
     private PlayerController playerController;
     private Transform CharShowcam;
+    private AutoGuideConfigures autoGuide;
+    private Transform[] npcsPosArray;
     public override void Init()
     {
         //需要调用父类的初始化方法完成一些写在父类中的逻辑
@@ -44,6 +46,10 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
             audioService.PlayBGMusic(Consts.A_BGMCity, true);
             //角色的初始化导入
             LoadPrefab(mapConfigure);
+
+            //进入主城时, 获取到各个NPC的位置
+            var mapRoot = GameObject.FindGameObjectWithTag("MapRoot");
+            npcsPosArray = mapRoot.GetComponent<CityMap>().NPCPosArray;
 
             //TODO设置人物相机
             if(CharShowcam != null) CharShowcam.gameObject.SetActive(false);
@@ -116,6 +122,32 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
     public void RotateCamera(float offset)
     {
         CharShowcam.RotateAround(playerController.transform.position, Vector3.up, offset *Time.deltaTime);
+    }
+    #endregion
+
+    #region AutoTask
+    public void RunTask(AutoGuideConfigures guideConfigures)
+    {
+        if (guideConfigures != null)
+        {
+            autoGuide = guideConfigures;
+        }
+        //解析任务数据
+        //如果不是-1, 说明是新手需要进行指导任务.
+        if (guideConfigures.ID != -1)
+        {
+            
+
+        }
+        else
+        {   //运行新手指导
+            OpenGuideWindow();
+        }
+    }
+
+    private void OpenGuideWindow()
+    {
+        //Todo
     }
     #endregion
 }
