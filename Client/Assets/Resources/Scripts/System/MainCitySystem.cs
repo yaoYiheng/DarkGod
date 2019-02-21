@@ -51,7 +51,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
             var mapRoot = GameObject.FindGameObjectWithTag("MapRoot");
             npcsPosArray = mapRoot.GetComponent<CityMap>().NPCPosArray;
 
-            //TODO设置人物相机
+            //TODO设置人物相机 
             if(CharShowcam != null) CharShowcam.gameObject.SetActive(false);
          
         });
