@@ -25,6 +25,6 @@ public class Test : MonoBehaviour
         // Debug.Log(Input.mousePosition);
         // Debug.Log(Screen.width);
 
-        transform.RotateAround(Target.position, Vector3.up, yRotation);
+        // transform.RotateAround(Target.position, Vector3.up, yRotation);
     }
 }

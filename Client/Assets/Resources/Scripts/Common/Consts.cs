@@ -14,7 +14,7 @@ public class Consts
 {
 
     #region NPC
-
+    public const float DistanceToNPC = 0.5f;
     public const int NPCWiseman= 0;
     public const int NPCGeneral = 1;
     public const int NPCArtisan = 2;

@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         character.Move(transform.forward * Time.deltaTime * Consts.PlayerSpeed);
     }
-    void CameraFollow()
+    public void CameraFollow()
     {
         cam.transform.position = transform.position - CamOffset;
     }

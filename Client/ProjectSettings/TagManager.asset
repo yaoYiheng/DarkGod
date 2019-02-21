@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MapRoot
   - CharCam
+  - MainCityMap
   layers:
   - Default
   - TransparentFX

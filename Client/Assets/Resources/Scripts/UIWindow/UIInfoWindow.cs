@@ -42,6 +42,7 @@ public class UIInfoWindow : UIWindowRoot
         base.InitUIwindow();
         RegisterEvents();
         UpdateUI();
+        SetActive(DetailInfo, false);
     }
 
     //注册拖拽事件

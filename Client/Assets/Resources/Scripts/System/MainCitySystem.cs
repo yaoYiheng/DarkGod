@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class MainCitySystem : SystemRoot<MainCitySystem> 
@@ -18,6 +19,29 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
     private Transform CharShowcam;
     private AutoGuideConfigures autoGuide;
     private Transform[] npcsPosArray;
+    private NavMeshAgent NavMesh;
+    private bool m_IsNavTask;
+    
+    public bool IsNavTask
+    {
+        get
+        {
+            return m_IsNavTask;
+        }
+
+        set
+        {
+            m_IsNavTask = value;
+            if(value == false)
+            {
+                NavMesh.isStopped = true;
+                NavMesh.enabled = false;
+                playerController.SetBlend(Consts.IdleBlend);
+            }
+
+        }
+    }
+
     public override void Init()
     {
         //需要调用父类的初始化方法完成一些写在父类中的逻辑
@@ -48,8 +72,12 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
             LoadPrefab(mapConfigure);
 
             //进入主城时, 获取到各个NPC的位置
-            var mapRoot = GameObject.FindGameObjectWithTag("MapRoot");
-            npcsPosArray = mapRoot.GetComponent<CityMap>().NPCPosArray;
+            var mapRoot = GameObject.FindGameObjectWithTag("MainCityMap").GetComponent<CityMap>();
+
+            npcsPosArray = mapRoot.NPCPosArray;
+
+            //获取导航组件
+            NavMesh = playerController.gameObject.GetComponent<NavMeshAgent>();
 
             //TODO设置人物相机 
             if(CharShowcam != null) CharShowcam.gameObject.SetActive(false);
@@ -76,6 +104,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
 
     public void MoveCharator(Vector2 direction)
     {
+        StopNav();
         if (direction == Vector2.zero)
         {
             playerController.SetBlend(Consts.IdleBlend);
@@ -89,6 +118,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
 
     public void ShowInfoWindow()
     {
+        StopNav();
         if (CharShowcam == null)
         {
             CharShowcam = GameObject.FindGameObjectWithTag("CharCam").transform;
@@ -110,12 +140,14 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
 
     #region 拖拽旋转角色
     private float startRotate = 0;
+
     public void SetStartRotate()
     {
         startRotate = playerController.transform.localEulerAngles.y;
     }
     public void RotatePlayer(float offset)
     {
+        
         // var eulerAngles = 
         playerController.transform.localEulerAngles = new Vector3(0, startRotate + offset, 0);
     }
@@ -133,10 +165,33 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
             autoGuide = guideConfigures;
         }
         //解析任务数据
+        NavMesh.enabled = true;
         //如果不是-1, 说明是新手需要进行指导任务.
         if (guideConfigures.ID != -1)
         {
-            
+           
+            var distance = Vector3.Distance(playerController.transform.position, npcsPosArray[guideConfigures.npcID].position);
+
+
+            //当两者距离过大时, 打开并设置导航
+            if (distance > Consts.DistanceToNPC)
+            {
+                IsNavTask = true;
+                // playerController.CameraFollow();
+                NavMesh.enabled = true;
+                NavMesh.SetDestination(npcsPosArray[guideConfigures.npcID].position);
+                NavMesh.speed = Consts.PlayerSpeed;
+
+                playerController.SetBlend(Consts.WalkBlend);
+
+            }
+            else//到达NPC跟前时, 关闭导航
+            {
+                IsNavTask = false;
+
+                OpenGuideWindow();
+            }
+
 
         }
         else
@@ -145,9 +200,34 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
         }
     }
 
+    void Update()
+    {
+        if (IsNavTask)
+        {
+            playerController.CameraFollow();
+            ReachNavPos();
+        }
+    }
+
+    private void ReachNavPos()
+    {
+        //停止任务导航
+        var distance = Vector3.Distance(playerController.transform.position, npcsPosArray[autoGuide.npcID].position);
+
+        if(distance < Consts.DistanceToNPC)
+        {
+            IsNavTask = false;
+            OpenGuideWindow();
+        }
+    }
+    private void StopNav()
+    {
+        if (IsNavTask) IsNavTask = false;
+    }
     private void OpenGuideWindow()
     {
         //Todo
+        Debug.Log("打开任务引导页面");
     }
     #endregion
 }
