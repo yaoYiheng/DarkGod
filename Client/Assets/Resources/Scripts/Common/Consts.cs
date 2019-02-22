@@ -15,6 +15,12 @@ public class Consts
 
     #region NPC
     public const float DistanceToNPC = 0.5f;
+    
+    public const string NPCWisemanT= "智者";
+    public const string NPCGeneralT = "将军";
+    public const string NPCArtisanT = "铁匠";
+    public const string NPCTraderT = "商人";
+    public const string NPCDefaultT = "喵咪咪";
     public const int NPCWiseman= 0;
     public const int NPCGeneral = 1;
     public const int NPCArtisan = 2;
@@ -22,6 +28,12 @@ public class Consts
     #endregion
 
     #region 资源路径
+    public const string SelfICon = "ResImages/assassin";
+    public const string WiseManICon = "ResImages/npc0";
+    public const string GeneralICon = "ResImages/npc1";
+    public const string ArtisanICon = "ResImages/npc2";
+    public const string TraderICon = "ResImages/npc3";
+    public const string DefaultICon = "ResImages/guide";
     public const string NPC_Default = "ResImages/task";
     public const string NPC_Wiseman= "ResImages/wiseman";
     public const string NPC_General = "ResImages/general";
@@ -32,6 +44,7 @@ public class Consts
     public const string MapCfgPath = "ResCfgs/map";
     public const string GuideCfgPath = "ResCfgs/guide";
     public const string PrefabPath = "PrefabPlayer/";
+
     #endregion
     //场景
     public const string S_LoadingScene = "01LoginScene";
