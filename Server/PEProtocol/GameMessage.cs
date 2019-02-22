@@ -18,6 +18,24 @@ namespace PEProtocol
         public RenameRespond renameRespond;
     }
 
+    #region 任务相关
+    [Serializable]
+    public class GuideRequest
+    {
+        public int GuideID;
+    }
+    [Serializable]
+    public class GuideRespond
+    {
+        public int GuideID;
+        public int Coin;
+        public int Exprience;
+        public int Level;
+    }
+
+
+    #endregion
+
     #region 登录相关
     [Serializable]
     public class LoginRequest
@@ -71,7 +89,7 @@ namespace PEProtocol
         None = 0, //没有错误
 
         UpdateDataBaseError,//更新到数据库时错误
-
+        ServerDataError, //服务器与客户端数据发生冲突时, 作弊?
         AccountOnLine, // 账号在线
         WrongPassword,
         NameExit
@@ -85,6 +103,11 @@ namespace PEProtocol
 
         RenameRequest = 103,
         RenameRespond = 104,
+
+
+        //任务相关
+        GuideRequest = 200,
+        GuideRespone = 201,
 
     }
     public class ServiceConfigure
