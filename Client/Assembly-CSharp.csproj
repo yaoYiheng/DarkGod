@@ -71,6 +71,7 @@
      <Compile Include="Assets\Resources\Scripts\System\LoginSystem.cs" />
      <Compile Include="Assets\Resources\Scripts\System\MainCitySystem.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UICreatWindow.cs" />
+     <Compile Include="Assets\Resources\Scripts\UIWindow\UIDialogWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UIDynamicWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UIInfoWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UILoadingWindow.cs" />

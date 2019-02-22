@@ -15,6 +15,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
 {
     public UIMainCityWindow MainCityWindow;
     public UIInfoWindow UIInfoWindow;
+    public UIDialogWindow UIDialogWindow;
     private PlayerController playerController;
     private Transform CharShowcam;
     private AutoGuideConfigures autoGuide;
@@ -208,7 +209,8 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
             ReachNavPos();
         }
     }
-
+    ///该方法需要在Update方法中不断调用去检查两者之间的距离,
+    //当距离小于一定值的时候. 就结束自动寻路.
     private void ReachNavPos()
     {
         //停止任务导航
@@ -228,6 +230,8 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
     {
         //Todo
         Debug.Log("打开任务引导页面");
+        UIDialogWindow.SetWindowState();
+
     }
     #endregion
 }
