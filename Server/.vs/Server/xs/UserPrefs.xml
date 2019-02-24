@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{0EAA5E63-86D9-4FFF-9469-36A111B68809}|Default">
   <MonoDevelop.Ide.ItemProperties.Server PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Server/02System/02GuideSys/GuideSys.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Server/01Service/02ConfigureService/ConfigureService.cs">
     <Files>
-      <File FileName="Server/02System/02GuideSys/GuideSys.cs" Line="49" Column="9" />
+      <File FileName="Server/02System/02GuideSys/GuideSys.cs" Line="44" Column="30" />
       <File FileName="Server/02System/01LoginSys/LoginSystem.cs" Line="1" Column="1" />
       <File FileName="Server/00Common/ServerStart.cs" Line="1" Column="1" />
       <File FileName="Server/00Common/ServerRoot.cs" Line="32" Column="31" />
       <File FileName="Server/01Service/01NetService/ServerSession.cs" Line="23" Column="6" />
       <File FileName="Server/01Service/01NetService/NetSerive.cs" Line="88" Column="52" />
       <File FileName="Server/00Common/Singleton.cs" Line="20" Column="2" />
+      <File FileName="Server/01Service/02ConfigureService/ConfigureService.cs" Line="44" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
