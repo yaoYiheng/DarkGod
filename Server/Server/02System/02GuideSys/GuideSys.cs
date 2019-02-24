@@ -41,9 +41,25 @@ public class GuideSys : Singelton<GuideSys>
             //更新服务器端的引导ID
             playerData.guideid += 1;
 
-            //服务器需要拿到配置文件, 更新
+            //服务器需要拿到配置文件, 更新具体的数据
+            AutoGuideConfigures configures = ConfigureService.Instance.GetGuideConfigures(clientData.GuideID);
+            //计算获得任务奖励后的玩家数据
+            CauculateNewData(playerData, configures);
+
             //更新数据库中的玩家数据.
-            //
+            if (!cacheService.UpdatePlayerDataToDataBase(playerData.id, playerData))
+                message.err = (int)ErrorCode.UpdateDataBaseError;
+            else
+            {
+                message.guideRespond = new GuideRespond()
+                {
+                    GuideID = playerData.guideid,
+                    Coin = playerData.coin,
+                    Exprience = playerData.experience,
+                    Level = playerData.level
+                };
+            }
+
 
 
         }
@@ -51,6 +67,32 @@ public class GuideSys : Singelton<GuideSys>
         //发送给客户端
         pack.serverSession.SendMsg(message);
 
+
+    }
+
+    private void CauculateNewData(PlayerData data, AutoGuideConfigures configures)
+    {
+        var cuurentExp = data.experience;
+        var restExp = configures.exp;
+
+
+        //更新金币
+        data.coin += configures.coin;
+
+        while (true)
+        {
+            var levelUpNeedExp = Common.GetLevelUpExp(data.level) - restExp;
+            if (restExp >= levelUpNeedExp)
+            {
+                data.level += 1;
+                cuurentExp = 0;
+                restExp -= levelUpNeedExp;
+            }
+            else
+            {
+                data.experience += levelUpNeedExp;
+            }
+        }
 
     }
 

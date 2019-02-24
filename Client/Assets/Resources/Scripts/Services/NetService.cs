@@ -84,6 +84,9 @@ public class NetService : Singleton<NetService>
                 case ErrorCode.WrongPassword:
                 GameRoot.AddTips("密码错误");
                 break;
+                case ErrorCode.ServerDataError:
+                GameRoot.AddTips("开挂");
+                break;
 
                 default:
                 break;
