@@ -243,7 +243,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
 
         //弹出任务奖励提示. 
         //这里不能使用返回的任务数据, 因为是进过计算的, 需要从配置文件中获取具体的任务奖励数量
-        GameRoot.AddTips(string.Format("获得任务奖励:{0}经验, {1}金币",autoGuide.exp, autoGuide.coin));
+        GameRoot.AddTips(Tools.SetTextColor(string.Format("获得任务奖励:{0}经验, {1}金币",autoGuide.exp, autoGuide.coin), TextColor.Blue));
 
         // 将奖励保存至GR
         GameRoot.Instance.UpdatePlayerData(respond);

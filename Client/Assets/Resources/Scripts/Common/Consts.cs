@@ -10,9 +10,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+public enum TextColor 
+{
+    Red,
+    Green,
+    Blue,
+    Yellow
+}
+
+
 public class Consts 
 {
 
+    #region 颜色
+    public const string ColorRed = "<color=#FF0000FF>";
+    public const string ColorGreen = "<color=#00FF00FF>";
+    public const string ColorBlue = "<color=#00B4FFFF>";
+    public const string ColorYellow = "<color=#FFFF00FF>";
+    public const string ColorEnd = "</color>";
+    #endregion
     #region NPC
     public const float DistanceToNPC = 0.5f;
     

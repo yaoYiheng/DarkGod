@@ -20,4 +20,29 @@ public class Tools
         }
         return random.Next(min, max + 1);
     }
+
+    public static string SetTextColor(string content, TextColor color)
+    {
+        string result = "";
+
+        switch (color)
+        {
+            case TextColor.Red:
+            result = Consts.ColorRed + content + Consts.ColorEnd;
+            break;
+            case TextColor.Blue:
+            result = Consts.ColorBlue + content + Consts.ColorEnd;
+            break;
+            case TextColor.Yellow:
+            result = Consts.ColorYellow + content + Consts.ColorEnd;
+            break;
+            case TextColor.Green:
+            result = Consts.ColorGreen + content + Consts.ColorEnd;
+            break;                                    
+            default:
+            break;
+        }
+
+        return result;
+    }
 }
