@@ -34,7 +34,8 @@ public class Consts
     public const string ArtisanICon = "ResImages/npc2";
     public const string TraderICon = "ResImages/npc3";
     public const string DefaultICon = "ResImages/guide";
-    public const string NPC_Default = "ResImages/task";
+    public const string NPC_Default = "ResImages/npcguide";
+    public const string NPC_DefaultIcon = "ResImages/task";
     public const string NPC_Wiseman= "ResImages/wiseman";
     public const string NPC_General = "ResImages/general";
     public const string NPC_Artisan = "ResImages/artisan";

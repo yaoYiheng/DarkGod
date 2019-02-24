@@ -179,7 +179,7 @@ public class UIMainCityWindow : UIWindowRoot
             path = Consts.NPC_Trader;
             break;            
             default:
-            path = Consts.NPC_Default;
+            path = Consts.NPC_DefaultIcon;
             break;
         }
         SetSprite(icon, path);

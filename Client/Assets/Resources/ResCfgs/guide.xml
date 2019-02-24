@@ -49,7 +49,7 @@
 #0|是时候让自己的口袋充实一些了。</dilogArr>
 		<actID>4</actID>
 		<coin>105</coin>
-		<exp>1201</exp>
+		<exp>200</exp>
 	</item>
 	<item ID="1006">
 		<npcID>-1</npcID>
@@ -57,6 +57,6 @@
 #0|是时候让世界听到我的声音了。</dilogArr>
 		<actID>5</actID>
 		<coin>115</coin>
-		<exp>1301</exp>
+		<exp>300</exp>
 	</item>
 </root>

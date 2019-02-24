@@ -53,10 +53,10 @@ public class UIDialogWindow : UIWindowRoot
                 case Consts.NPCGeneral:
 
                 SetSprite(IconImage, Consts.GeneralICon);
-                UpdateText(NameText, Consts.NPCWisemanT);
+                UpdateText(NameText, Consts.NPCGeneralT);
                 break;
                 case Consts.NPCArtisan:
-                UpdateText(NameText, Consts.NPCWisemanT);
+                UpdateText(NameText, Consts.NPCArtisanT);
                 SetSprite(IconImage, Consts.ArtisanICon);
 
                 break;
