@@ -29,6 +29,7 @@ public class ServerRoot
 
         //业务逻辑层
         LoginSystem.Instance.Init();
+        GuideSys.Instance.Init();
 
     }
 

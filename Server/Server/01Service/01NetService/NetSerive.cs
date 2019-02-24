@@ -84,6 +84,9 @@ public class NetSerive
                 LoginSystem.Instance.RenameRequest(pack);
                 break;
 
+            case CMD.GuideRequest:
+                GuideSys.Instance.GuideRequest(pack);
+                break;
             default:
                 break;
         }

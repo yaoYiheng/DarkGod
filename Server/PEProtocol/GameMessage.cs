@@ -16,6 +16,9 @@ namespace PEProtocol
 
         public RenameRequest renameRequest;
         public RenameRespond renameRespond;
+
+        public GuideRequest guideRequest;
+        public GuideRespond guideRespond;
     }
 
     #region 任务相关

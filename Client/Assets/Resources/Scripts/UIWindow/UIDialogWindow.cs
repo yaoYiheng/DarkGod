@@ -86,5 +86,13 @@ public class UIDialogWindow : UIWindowRoot
         //结束对话
         SetActive(this.gameObject, false);
         //向服务器发送结束任务消息
+        netService.SendMessages(new GameMessage (){
+            cmd = (int)CMD.LoginRequest,
+
+            guideRequest = new GuideRequest()
+            {
+                GuideID = GuideConfigures.ID
+            }
+        });
     }
 }
