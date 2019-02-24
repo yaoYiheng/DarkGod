@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using PEProtocol;
 
 
 public class MainCitySystem : SystemRoot<MainCitySystem> 
@@ -168,7 +169,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
         //解析任务数据
         NavMesh.enabled = true;
         //如果不是-1, 说明是新手需要进行指导任务.
-        if (guideConfigures.ID != -1)
+        if (guideConfigures.npcID != -1)
         {
            
             var distance = Vector3.Distance(playerController.transform.position, npcsPosArray[guideConfigures.npcID].position);
@@ -232,6 +233,21 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
         Debug.Log("打开任务引导页面");
         UIDialogWindow.SetWindowState();
 
+    }
+    #endregion
+
+    #region 任务
+    public void GuideRespond(GameMessage message)
+    {
+        GuideRespond respond = message.guideRespond;
+
+        //弹出任务奖励提示. 
+        //这里不能使用返回的任务数据, 因为是进过计算的, 需要从配置文件中获取具体的任务奖励数量
+        GameRoot.AddTips(string.Format("获得任务奖励:{0}经验, {1}金币",autoGuide.exp, autoGuide.coin));
+
+        // 将奖励保存至GR
+        GameRoot.Instance.UpdatePlayerData(respond);
+        MainCityWindow.UpdateUI();
     }
     #endregion
 }

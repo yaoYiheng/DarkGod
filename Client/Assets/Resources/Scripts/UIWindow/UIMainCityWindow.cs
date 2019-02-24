@@ -99,7 +99,7 @@ public class UIMainCityWindow : UIWindowRoot
 
 
     #endregion
-    private void UpdateUI()
+    public void UpdateUI()
     {
         //根据玩家数据更新UI
         var data = GameRoot.Instance.PlayerData;
@@ -189,6 +189,11 @@ public class UIMainCityWindow : UIWindowRoot
     #region 点击按钮方法
     public void OnAutoTaskClick()
     {
+        if(guideConfigures == null)
+        {
+            GameRoot.AddTips("更多任务敬请期待");
+            return;
+        }
         MainCitySystem.Instance.RunTask(guideConfigures);
     }
     public void OnMenuBtnClick()

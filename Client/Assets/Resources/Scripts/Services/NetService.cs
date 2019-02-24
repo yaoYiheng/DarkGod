@@ -103,6 +103,10 @@ public class NetService : Singleton<NetService>
             case CMD.RenameRespond:
             LoginSystem.Instance.RenameRespond(message);
             break;
+            case CMD.GuideRespone:
+            //更新
+            MainCitySystem.Instance.GuideRespond(message);
+            break;
             default:
             break;
         }

@@ -28,7 +28,7 @@ public class GuideSys : Singelton<GuideSys>
         //回复客户端的数据包
         var message = new GameMessage()
         {
-            cmd = (int)CMD.GuideRequest
+            cmd = (int)CMD.GuideRespone
         };
 
         if (clientData.GuideID != playerData.guideid)
@@ -44,6 +44,8 @@ public class GuideSys : Singelton<GuideSys>
             //服务器需要拿到配置文件, 更新具体的数据
             AutoGuideConfigures configures = ConfigureService.Instance.GetGuideConfigures(clientData.GuideID);
             //计算获得任务奖励后的玩家数据
+            //更新金币
+            playerData.coin += configures.coin;
             CauculateNewData(playerData, configures);
 
             //更新数据库中的玩家数据.
@@ -74,23 +76,24 @@ public class GuideSys : Singelton<GuideSys>
     {
         var cuurentExp = data.experience;
         var restExp = configures.exp;
+        var currentLevel = data.level;
 
 
-        //更新金币
-        data.coin += configures.coin;
 
         while (true)
         {
-            var levelUpNeedExp = Common.GetLevelUpExp(data.level) - restExp;
+            var levelUpNeedExp = Common.GetLevelUpExp(data.level) - cuurentExp;
             if (restExp >= levelUpNeedExp)
             {
-                data.level += 1;
+                currentLevel += 1;
                 cuurentExp = 0;
                 restExp -= levelUpNeedExp;
             }
             else
             {
-                data.experience += levelUpNeedExp;
+                data.experience += restExp;
+                data.level = currentLevel;
+                break;
             }
         }
 

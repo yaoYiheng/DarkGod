@@ -115,4 +115,12 @@ public class GameRoot : Singleton<GameRoot>
             canvas.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
+
+    public void UpdatePlayerData(GuideRespond respond)
+    {
+        playerData.coin = respond.Coin;
+        playerData.experience = respond.Exprience;
+        playerData.level = respond.Level;
+        playerData.guideid = respond.GuideID;
+    }
 }

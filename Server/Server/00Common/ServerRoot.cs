@@ -22,10 +22,11 @@ public class ServerRoot
     {
         //数据层
         DataBaseManager.Instance.InitDataBase();
+
         //服务层
         NetSerive.Instance.Init();
         CacheService.Instance.InitCacheService();
-
+        ConfigureService.Instance.Init();
 
         //业务逻辑层
         LoginSystem.Instance.Init();
