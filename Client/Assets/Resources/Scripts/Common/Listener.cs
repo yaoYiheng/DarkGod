@@ -11,17 +11,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Listener : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class Listener : MonoBehaviour,IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
-
+    public Action<object> onClick;
     public Action<PointerEventData> onClickDown;
     public Action<PointerEventData> onClickUp;
     public Action<PointerEventData> onDrag;
+    public object valueObj;
     public void OnDrag(PointerEventData eventData)
     {
         if(onDrag != null)
         {
             onDrag(eventData);
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (onClick != null)
+        {   
+            onClick(valueObj);
         }
     }
 

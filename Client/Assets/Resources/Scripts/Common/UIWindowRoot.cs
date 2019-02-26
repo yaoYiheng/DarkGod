@@ -112,6 +112,14 @@ public class UIWindowRoot : MonoBehaviour
 
         return t;
     }
+
+    protected void OnClick(GameObject go, Action<object> action, object obj)
+    {   //向传入的组件上添加<Listener>
+        var listener = GetOrAddCommponent<Listener>(go);      
+        //向监听的声明添加事件.
+        listener.onClick = action;
+        listener.valueObj = obj;
+    }
     protected void OnClickDown(GameObject go, Action<PointerEventData> action)
     {   //向传入的组件上添加<Listener>
         var listener = GetOrAddCommponent<Listener>(go);      

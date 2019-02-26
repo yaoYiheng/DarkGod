@@ -43,6 +43,11 @@ public class Consts
     public const int NPCTrader = 3;
     #endregion
 
+    #region 强化系统
+    public const string ArrowImg = "ResImages/btnstrong";
+    public const string PlantImg = "ResImages/charbg3";
+    #endregion
+
     #region 资源路径
     public const string SelfICon = "ResImages/assassin";
     public const string WiseManICon = "ResImages/npc0";
