@@ -79,6 +79,7 @@
      <Compile Include="Assets\Resources\Scripts\UIWindow\UIMainCityWindow.cs" />
      <Compile Include="Assets\Resources\Scripts\UIWindow\UIStrongWindow.cs" />
      <Compile Include="Assets\Test.cs" />
+     <None Include="Assets\Resources\ResCfgs\strong.xml" />
      <None Include="Assets\Compond\MakeChar\Shader\PlayerShader.shader" />
      <None Include="Assets\Resources\ResCfgs\guide.xml" />
      <None Include="Assets\Resources\ResCfgs\rdname.xml" />
