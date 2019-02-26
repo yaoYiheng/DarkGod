@@ -4,8 +4,8 @@
 		<mapName>圣光主城</mapName>
 		<sceneName>02SceneMainCity</sceneName>
 		<mainCamPos>17.4,7,50</mainCamPos>
-		<mainCamRote>40,142,0</mainCamRote>
-		<playerBornPos>22,-1.1,45</playerBornPos>
+		<mainCamRote>38.7,148.1,0</mainCamRote>
+		<playerBornPos>21.5,-1.1,44.3</playerBornPos>
 		<playerBornRote>0,0,0</playerBornRote>
 	</item>
 </root>
