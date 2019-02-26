@@ -17,6 +17,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
     public UIMainCityWindow MainCityWindow;
     public UIInfoWindow UIInfoWindow;
     public UIDialogWindow UIDialogWindow;
+    public UIStrongWindow UIStrongWindow;
     private PlayerController playerController;
     private Transform CharShowcam;
     private AutoGuideConfigures autoGuide;
@@ -87,6 +88,12 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
         });
     }
 
+    #region 强化业务
+    public void OpenStrongWindow()
+    {
+        UIStrongWindow.SetWindowState();
+    }
+    #endregion
     void LoadPrefab(MapConfigures map)
     {
             GameObject player = resourceService.GetPlayer(Consts.PlayerInCity, true);
@@ -132,7 +139,7 @@ public class MainCitySystem : SystemRoot<MainCitySystem>
         CharShowcam.localScale = Vector3.one;
         CharShowcam.gameObject.SetActive(true);
         UIInfoWindow.ShowInfoWindow();
-        audioService.PlayEffect(Consts.A_UIOpenPage);
+        
     }
 
     public void HideInfowWindow()

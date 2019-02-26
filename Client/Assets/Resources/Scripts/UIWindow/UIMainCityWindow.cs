@@ -218,9 +218,14 @@ public class UIMainCityWindow : UIWindowRoot
 
 
     }
-
+    public void OnStrongIconClick()
+    {
+        audioService.PlayEffect(Consts.A_UIOpenPage);
+        MainCitySystem.Instance.OpenStrongWindow();
+    }
     public void OnHeadClick()
     {
+        audioService.PlayEffect(Consts.A_UIOpenPage);
         MainCitySystem.Instance.ShowInfoWindow();
     }
     #endregion
