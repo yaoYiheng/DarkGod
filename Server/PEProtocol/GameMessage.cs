@@ -75,6 +75,7 @@ namespace PEProtocol
         public int critical;//暴击概率
         //待续
         public int guideid;
+        public int[] strongarray;
     }
     [Serializable]
     public class RenameRequest

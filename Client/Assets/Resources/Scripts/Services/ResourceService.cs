@@ -29,6 +29,8 @@ public class ResourceService : Singleton<ResourceService>
         LoadFromFile(Consts.RdNamePath);
         LoadMapConfigure(Consts.MapCfgPath);
         LoadAutoGuideConfigure(Consts.GuideCfgPath);
+        LoadStrongConfigure(Consts.StrongCfgPath);
+
         Debug.Log("初始化资源服务");
     }
 
@@ -46,6 +48,105 @@ public class ResourceService : Singleton<ResourceService>
             }
         }
         return sprite;
+    }
+    #endregion
+
+    #region 获取强化配置
+    private Dictionary<int, Dictionary<int, StrongConfigure>> m_StrongDict = new Dictionary<int, Dictionary<int, StrongConfigure>>();
+    public StrongConfigure GetStrongConfigure(int pos, int startlevel)
+    {
+        StrongConfigure configure = null;
+        Dictionary<int, StrongConfigure> temp = null;
+
+        if (m_StrongDict.TryGetValue(pos, out temp))
+        {
+            if (temp.ContainsKey(startlevel))
+            {
+                configure = temp[startlevel];
+            }
+        }
+
+
+
+        return configure;
+    }
+    public void LoadStrongConfigure(string path)
+    {
+        var asset = Resources.Load<TextAsset>(path);
+        if (asset == null)
+        {
+            Debug.Log("强化文件无法加载");
+        }
+        else
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(asset.text);
+            XmlNodeList list = xml.SelectSingleNode("root").ChildNodes;
+            for (int i = 0; i < list.Count; i++)
+            {
+                var element = list[i] as XmlElement;
+                if (element.GetAttributeNode("ID") == null) continue;
+
+                var strongConfigure = new StrongConfigure()
+                {
+                    ID = int.Parse(element.GetAttributeNode("ID").InnerText)
+                };
+                
+                foreach (XmlElement item in list[i].ChildNodes)
+                {
+                    var value = int.Parse(item.InnerText);
+                    switch (item.Name)
+                    {
+                        case "pos":
+                        strongConfigure.pos = value;
+                        break;
+                        case "starlv":
+                        strongConfigure.starLevel = value;
+                        break;
+                        case "addhp":
+                        strongConfigure.AddHp = value;
+                        break;
+                        case "addhurt":
+                        strongConfigure.AddDamage = value;
+                        break;
+                        case "adddef":
+                        strongConfigure.AddDefence = value;
+                        break;
+                        case "minlv":
+                        strongConfigure.MinLevel = value;
+                        break;
+                        case "coin":
+                        strongConfigure.Coin = value;
+                        break;
+                        case "crystal":
+                        strongConfigure.Crystal = value;
+                        break;
+                        default:
+                        break;
+                    }
+                }
+
+                //将数据写入嵌套的字典当中
+                Dictionary<int, StrongConfigure> tempDict = null;
+                //根据指定的值, 这里是pos作为键, 从大字典中试着去出小字典
+                if (m_StrongDict.TryGetValue(strongConfigure.pos, out tempDict))
+                {
+                    //如果能够根据传入的位置取出属于某位置的字典, 则以该部位的星级为key, 添加到小字典中
+                    tempDict.Add(strongConfigure.starLevel, strongConfigure);
+                }
+                else
+                {
+                    //如果无法获取到某部位的字典, 就创建一个新的字典, 将该部位对应数据添加到小字典后, 在添加到大字典中
+                    tempDict = new Dictionary<int, StrongConfigure>();
+                    tempDict.Add(strongConfigure.starLevel, strongConfigure);
+
+                    //添加到大字典中
+                    m_StrongDict.Add(strongConfigure.pos, tempDict);
+                }
+            }
+        }
+
+
     }
     #endregion
 

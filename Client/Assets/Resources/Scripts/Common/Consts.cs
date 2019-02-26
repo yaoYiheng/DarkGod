@@ -65,6 +65,7 @@ public class Consts
     public const string RdNamePath = "ResCfgs/rdname";
     public const string MapCfgPath = "ResCfgs/map";
     public const string GuideCfgPath = "ResCfgs/guide";
+    public const string StrongCfgPath = "ResCfgs/strong";
     public const string PrefabPath = "PrefabPlayer/";
 
     #endregion

@@ -9,25 +9,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    public class AutoGuideConfigures: BaseData<AutoGuideConfigures>
-    {
-    public int npcID;
-    public string dilogArr;
-    public int actID;
-    public int coin;
-    public int exp;
-    }
-    public class MapConfigures: BaseData<MapConfigures>
-    {
-    public string mapName;
-    public string sceneName;
-    public Vector3 mainCamPos;
-    public Vector3 mainCamRot;
-    public Vector3 playerBornPos;
-    public Vector3 playerBornRot;
-    }
 
-    public class BaseData<T>
-    {
-    public int ID;
-    }
+public class StrongConfigure: BaseData<StrongConfigure>
+{
+    public int pos;
+    public int starLevel;
+    public int AddHp;
+    public int AddDamage;
+    public int AddDefence;
+    public int MinLevel;
+    public int Coin;
+    
+    public int Crystal;
+}
+
+public class AutoGuideConfigures: BaseData<AutoGuideConfigures>
+{
+public int npcID;
+public string dilogArr;
+public int actID;
+public int coin;
+public int exp;
+}
+public class MapConfigures: BaseData<MapConfigures>
+{
+public string mapName;
+public string sceneName;
+public Vector3 mainCamPos;
+public Vector3 mainCamRot;
+public Vector3 playerBornPos;
+public Vector3 playerBornRot;
+}
+
+public class BaseData<T>
+{
+public int ID;
+}

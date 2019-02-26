@@ -83,6 +83,31 @@ public class DataBaseManager
                         //待添加
                         guideid = reader.GetInt32("guideid")
                     };
+
+
+
+                    #region 强化
+                    string[] strArr = reader.GetString("strong").Split('#');
+                    var tempArr = new int[6];
+                    for (int i = 0; i < strArr.Length; i++)
+                    {
+                        if (strArr[i] == "")
+                        {
+                            continue;
+                        }
+                        if (int.TryParse(strArr[i], out int val))
+                        {
+                            tempArr[i] = val;
+                        }
+                        else
+                        {
+                            //如果不能成功将字符串中的数字转出. 说明强化数据有问题
+                            Common.Log("强化数据有问题", LogType.Error);
+                        }
+                    }
+                    #endregion
+                    data.strongarray = tempArr;
+
                 }
             }
         }
@@ -120,6 +145,7 @@ public class DataBaseManager
                     critical = 2,
                     //待续
                     guideid = 1001,
+                    strongarray = new int[6],
                 };
                 //将插入到数据库后的id返回给默认创建的玩家数据的id
                 data.id = InsertPlayerData(account, password, data);
@@ -143,7 +169,7 @@ public class DataBaseManager
             MySqlCommand command = new MySqlCommand(
             "insert into darkgod set account = @account, password = @password, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond, " +
             "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical," +
-            "guideid=@guideid", connection);
+            "guideid=@guideid, strong=@strong", connection);
             command.Parameters.AddWithValue("account", account);
             command.Parameters.AddWithValue("password", password);
             command.Parameters.AddWithValue("name", data.name);
@@ -163,6 +189,15 @@ public class DataBaseManager
             command.Parameters.AddWithValue("critical", data.critical);
 
             command.Parameters.AddWithValue("guideid", data.guideid);
+
+            var temp = data.strongarray;
+            var tempstr = "";
+            for (int i = 0; i < temp.Length; i++)
+            {
+                tempstr += temp[i];
+                tempstr += '#';
+            }
+            command.Parameters.AddWithValue("strong", tempstr);
 
             command.ExecuteNonQuery();
             //返回插入的最后一条数据的id
@@ -221,7 +256,7 @@ public class DataBaseManager
             MySqlCommand command = new MySqlCommand(
             "update darkgod set name = @name, level = @level, experience = @experience, power = @power, coin = @coin, diamond = @diamond," +
              "hp=@hp,ad=@ad,ap=@ap,addef=@addef,apdef=@apdef,dodge=@dodge,pierce=@pierce,critical=@critical," +
-             "guideid=@guideid where id = @id", connection);
+             "guideid=@guideid, strong=@strong where id = @id", connection);
 
             command.Parameters.AddWithValue("name", data.name);
             command.Parameters.AddWithValue("level", data.level);
@@ -241,6 +276,16 @@ public class DataBaseManager
             command.Parameters.AddWithValue("pierce", data.pierce);
             command.Parameters.AddWithValue("critical", data.critical);
             command.Parameters.AddWithValue("guideid", data.guideid);
+
+            var temp = data.strongarray;
+            var tempStr = "";
+            for (int i = 0; i < temp.Length; i++)
+            {
+                tempStr += temp[i];
+                tempStr += '#';
+            }
+            command.Parameters.AddWithValue("strong", tempStr);
+
             command.ExecuteNonQuery();
         }
         catch (Exception ex)
